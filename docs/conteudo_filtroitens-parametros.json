@@ -1,0 +1,38 @@
+{
+    "fields": {
+        "sobre": {
+            "value": "Sad\/s",
+            "info": {
+                "service": "unknown"
+            },
+            "modification_date": "2018-03-23 09:04:02"
+        },
+        "foto": {
+            "value": "\/var\/userfiles\/modulos\/1\/5\/1803225ab41a1eca71a.jpg",
+            "info": {
+                "is_hosted_on_cms": true,
+                "format": "jpg",
+                "width": 160,
+                "height": 160,
+                "filesize": 19037
+            },
+            "modification_date": "2018-03-22 18:03:27"
+        },
+        "sexo": {
+            "value": "Mascuclino",
+            "info": {},
+            "modification_date": "2018-03-22 18:02:18"
+        },
+        "p": {
+            "value": "\/var\/userfiles\/modulos\/1\/5\/1803235ab4ec758eeba.png",
+            "modification_date": "2018-03-23 09:00:53",
+            "info": {
+                "is_hosted_on_cms": true,
+                "format": "png",
+                "width": 200,
+                "height": 300,
+                "filesize": 9919
+            }
+        }
+    }
+}

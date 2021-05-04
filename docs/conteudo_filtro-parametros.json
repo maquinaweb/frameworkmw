@@ -1,0 +1,39 @@
+{
+    "name": "autores",
+    "fields": {
+        "sobre": {
+            "type": "video",
+            "mode": "default",
+            "name": "sobre",
+            "label": "Sobre",
+            "description": "v\u00eddeo sobre autor",
+            "type_name": "V\u00eddeo",
+            "config": {}
+        },
+        "foto": {
+            "type": "image",
+            "mode": "default",
+            "name": "foto",
+            "label": "Foto",
+            "description": "Foto do autor",
+            "config": {
+                "width": 160,
+                "height": 160,
+                "formats": "jpeg,jpg,png"
+            },
+            "type_name": "Imagem"
+        },
+        "sexo": {
+            "type": "select",
+            "mode": "default",
+            "name": "sexo",
+            "label": "Sexo",
+            "description": "Sexo do autor",
+            "config": {
+                "options": "Mascuclino,Feminino",
+                "multiple": 1
+            },
+            "type_name": "Op\u00e7\u00f5es"
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "name": "sasa",
+    "id_conteudo": 1,
+    "id_name": "P\u00e1gina",
+    "filters": [{
+            "type": "Group",
+            "filters": [{
+                    "type": "Filter",
+                    "column": "categoria_id",
+                    "comparison": "=",
+                    "value": "1",
+                    "logical_operator": "and"
+                }, {
+                    "type": "Group",
+                    "filters": [{
+                            "type": "Filter",
+                            "column": "categoria_id",
+                            "comparison": "=",
+                            "value": "1",
+                            "logical_operator": "and"
+                        }, {
+                            "type": "Filter",
+                            "column": "categoria_id",
+                            "comparison": "=",
+                            "value": "1"
+                        }]
+                }],
+            "logical_operator": "and"
+        }, {
+            "type": "Group",
+            "filters": [{
+                    "type": "Filter",
+                    "column": "categoria_id",
+                    "comparison": "=",
+                    "value": "1"
+                }]
+        }],
+    "orders": [{
+            "column": "categoria_id",
+            "direction": "asc"
+        }, {
+            "column": "categoria_id",
+            "direction": "asc"
+        }],
+    "limit": 10
+}

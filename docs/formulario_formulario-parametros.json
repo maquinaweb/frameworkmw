@@ -1,0 +1,46 @@
+{
+    "fields": {
+        "teste": {
+            "value": "qeqweqwe",
+            "info": {
+                "length": 8
+            },
+            "modification_date": "2018-04-06 11:22:41"
+        },
+        "opt": {
+            "value": "Sim",
+            "info": {},
+            "modification_date": "2018-04-06 11:22:41"
+        },
+        "my_band": {
+            "value": "\/var\/userfiles\/formulario\/formulario\/1\/1804065ac782b1f0787.jpg",
+            "info": {
+                "is_hosted_on_cms": true,
+                "format": "jpg",
+                "width": 500,
+                "height": 500,
+                "filesize": 175130
+            },
+            "modification_date": "2018-04-06 11:22:42"
+        },
+        "video": {},
+        "file": {}
+    },
+    "inputs": {
+        "opt": {
+            "type": "select",
+            "mode": "default",
+            "name": "opt",
+            "label": "opt",
+            "description": "",
+            "config": {
+                "options": "",
+                "multiple": 1
+            },
+            "type_name": "Op\u00e7\u00f5es"
+        }
+    },
+    "preset": {
+        "id": 2
+    }
+}

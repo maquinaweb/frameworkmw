@@ -1,0 +1,16 @@
+{
+    "inputs": {
+        "opt": {
+            "type": "select",
+            "mode": "default",
+            "name": "opt",
+            "label": "opt",
+            "description": "",
+            "config": {
+                "options": "",
+                "multiple": 1
+            },
+            "type_name": "Op\u00e7\u00f5es"
+        }
+    }
+}

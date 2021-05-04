@@ -1,0 +1,40 @@
+{   
+    "module": "album",
+    "table": "foto",
+    "columns": {
+        "filter": {
+            "album_id": {
+                "name": "album_id",
+                "label": "album_id",
+                "relationship": {
+                    "module": "album",
+                    "table": "album",
+                    "name_attribute": "nome"
+                }
+            },
+            "descricao": {
+                "name": "descricao",
+                "label": "Descri\u00e7\u00e3o"
+            },
+            "foto": {
+                "name": "foto",
+                "label": "foto"
+            }
+        },
+        "order": {
+            "album_id": {
+                "name": "album_id",
+                "label": "album_id",
+                "relationship": {
+                    "module": "album",
+                    "table": "album",
+                    "name_attribute": "nome"
+                }
+            },
+            "foto": {
+                "name": "foto",
+                "label": "foto"
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "fields": {
+        "corpo": {
+            "value": "wwewqw",
+            "info": {
+                "length": 6
+            },
+            "modification_date": "2018-03-22 14:40:35"
+        },
+        "data_de_publicao": {
+            "value": "08\/03\/2018",
+            "info": {
+                "length": 10
+            },
+            "modification_date": "2018-03-22 14:40:35"
+        },
+        "imagem": {
+            "value": "\/var\/userfiles\/modulos\/1\/4\/1803225ab3ea93d50ba.jpg",
+            "info": {
+                "is_hosted_on_cms": true,
+                "format": "jpg",
+                "width": 1000,
+                "height": 1000,
+                "filesize": 556888
+            },
+            "modification_date": "2018-03-22 14:40:36"
+        },
+        "anexo": {
+            "value": "\/var\/userfiles\/modulos\/1\/4\/1803225ab3ea9474a52.pdf",
+            "info": {
+                "is_hosted_on_cms": true,
+                "format": "pdf",
+                "filesize": 2439494
+            },
+            "modification_date": "2018-03-22 14:40:36"
+        }
+    }
+}

@@ -1,0 +1,140 @@
+{
+    "padrao": {
+        "name": "padrao",
+        "type_id": "text",
+        "mode": "default",
+        "entries": [{
+                "value": "0001",
+                "modification_date": "2018-02-27 09:57:44",
+                "info": {
+                    "length": 4
+                }
+            }]
+    },
+    "formatado": {
+        "name": "formatado",
+        "type_id": "text",
+        "mode": "formatted",
+        "entries": [{
+                "value": null,
+                "modification_date": "2018-02-27 10:10:13",
+                "info": {}
+            }]
+    },
+    "numero": {
+        "name": "numero",
+        "type_id": "text",
+        "mode": "number",
+        "entries": [{
+                "value": "23222",
+                "modification_date": "2018-02-27 09:57:44",
+                "info": {
+                    "length": 5
+                }
+            }]
+    },
+    "data": {
+        "name": "data",
+        "type_id": "text",
+        "mode": "date",
+        "entries": [{
+                "value": "28\/02\/2018",
+                "modification_date": "2018-02-27 09:57:44",
+                "info": {
+                    "length": 10
+                }
+            }]
+    },
+    "hora": {
+        "name": "hora",
+        "type_id": "text",
+        "mode": "time"
+    },
+    "dataehora": {
+        "name": "dataehora",
+        "type_id": "text",
+        "mode": "datetime",
+        "entries": [{
+                "value": "14\/02\/2018 11:13",
+                "modification_date": "2018-02-27 11:13:54",
+                "info": {
+                    "length": 16
+                }
+            }]
+    },
+    "select": {
+        "name": "select",
+        "type_id": "select",
+        "mode": "default",
+        "entries": [{
+                "value": ["op1", "op2"],
+                "modification_date": "2018-02-27 09:57:44",
+                "info": {}
+            }]
+    },
+    "selectunico": {
+        "name": "selectunico",
+        "type_id": "select",
+        "mode": "default",
+        "entries": [{
+                "value": "op4",
+                "modification_date": "2018-02-27 09:57:44",
+                "info": {}
+            }]
+    },
+    "imagemum": {
+        "name": "imagemum",
+        "type_id": "image",
+        "mode": "default",
+        "entries": [{
+                "value": "\/var\/userfiles\/destaques\/1\/1802275a955ad109766.png",
+                "modification_date": "2018-02-27 10:19:13",
+                "info": {
+                    "is_hosted_on_cms": true,
+                    "format": "png",
+                    "width": 400,
+                    "height": 300,
+                    "filesize": 10539
+                }
+            }, {
+                "value": "\/var\/userfiles\/destaques\/1\/1802275a955ad13c2b5.png",
+                "modification_date": "2018-02-27 10:19:13",
+                "info": {
+                    "is_hosted_on_cms": true,
+                    "format": "png",
+                    "width": 400,
+                    "height": 300,
+                    "filesize": 13211
+                }
+            }]
+    },
+    "imagemdois": {
+        "name": "imagemdois",
+        "type_id": "image",
+        "mode": "default"
+    },
+    "video": {
+        "name": "video",
+        "type_id": "video",
+        "mode": "default",
+        "entries": [{
+                "value": "http:\/\/www.touuu.com",
+                "modification_date": "2018-02-27 11:13:41",
+                "info": {
+                    "service": "unknown"
+                }
+            }]
+    },
+    "moeda": {
+        "name": "moeda",
+        "type_id": "text",
+        "mode": "currency",
+        "entries": [{
+                "value": "222.22",
+                "modification_date": "2018-02-27 09:53:29",
+                "info": {
+                    "length": 6
+                }
+            }]
+    }
+}

@@ -1,0 +1,76 @@
+{ "config_formulario" :
+    {
+        "fields": {
+            "ttulo": {
+                "type": "text",
+                "mode": "default",
+                "name": "ttulo",
+                "label": "T\u00edtulo",
+                "description": "T\u00edtulo da not\u00edcia",
+                "config": {
+                    "regex": "",
+                    "mask": "",
+                    "min_length": 8,
+                    "max_length": 40
+                },
+                "type_name": "Texto"
+            },
+            "corpo": {
+                "type": "text",
+                "mode": "formatted",
+                "name": "corpo",
+                "label": "Corpo",
+                "description": "Corpo da not\u00edcia",
+                "config": {
+                    "max_length": 65000
+                },
+                "type_name": "Texto"
+            },
+            "data_de_publicao": {
+                "type": "text",
+                "mode": "date",
+                "name": "data_de_publicao",
+                "label": "Data de publica\u00e7\u00e3o",
+                "description": "Data de publica\u00e7\u00e3o",
+                "config": {
+                    "mask": ""
+                },
+                "type_name": "Texto"
+            },
+            "imagem": {
+                "type": "image",
+                "mode": "default",
+                "name": "imagem",
+                "label": "Imagem",
+                "description": "Imagem da not\u00edcia",
+                "config": {
+                    "width": 1000,
+                    "height": 800,
+                    "formats": "gif,jpeg,jpg,png"
+                },
+                "type_name": "Imagem"
+            },
+            "anexo": {
+                "type": "file",
+                "mode": "default",
+                "name": "anexo",
+                "label": "Anexo",
+                "description": "Anexo da not\u00edcia",
+                "config": {
+                    "max_size": 50,
+                    "size_multiplier": "1048576",
+                    "formats": "doc,docx,pdf"
+                },
+                "type_name": "Arquivo"
+            }
+        },
+        "attributes_to_ignore": {
+            "all" : [
+                "nome"
+            ],
+            "grid" : [
+                "emails"
+            ]
+        }
+    }
+}

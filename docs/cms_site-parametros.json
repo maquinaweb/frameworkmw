@@ -1,0 +1,69 @@
+{
+    "preset": {
+        "id": 1
+    },
+    "groups": {
+        "Sistema": {
+            "name": "Sistema",
+            "user_editable": 0,
+            "fields": {
+                "analytics": {
+                    "type": "text",
+                    "mode": "default",
+                    "user_editable": 0,
+                    "name": "analytics",
+                    "label": "Analytics",
+                    "description": "C\u00f3digo do google analytics",
+                    "config": {
+                        "regex": "\/^[a-zA-Z0-9]$\/",
+                        "mask": "",
+                        "max_length": "",
+                        "min_length": ""
+                    }
+                }
+            }
+        },
+        "Site": {
+            "name": "Site",
+            "user_editable": 1,
+            "fields": {
+                "video_destaque": {
+                    "type": "video",
+                    "mode": "default",
+                    "user_editable": 1,
+                    "name": "video_destaque",
+                    "label": "Video Destaque",
+                    "description": "V\u00eddeo de destaque do site",
+                    "config": {},
+                    "value": "http:\/\/youtube.com\/",
+                    "info": {
+                        "service": "unknown"
+                    },
+                    "modification_date": "2018-03-06 11:22:59"
+                },
+                "favicon": {
+                    "type": "image",
+                    "mode": "default",
+                    "user_editable": 1,
+                    "name": "favicon",
+                    "label": "Favicon",
+                    "description": "Favicon do site",
+                    "config": {
+                        "width": 16,
+                        "height": 16,
+                        "formats": "png"
+                    },
+                    "value": "\/var\/userfiles\/parameters\/2\/1803065a9eacae9eaef.png",
+                    "modification_date": "2018-03-06 11:58:54",
+                    "info": {
+                        "is_hosted_on_cms": true,
+                        "format": "png",
+                        "width": 16,
+                        "height": 16,
+                        "filesize": 744
+                    }
+                }
+            }
+        }
+    }
+}
