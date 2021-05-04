@@ -1,0 +1,68 @@
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Listagem de Linksenha</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+             <div class="row">
+            <div class="col-lg-6">
+                <p>
+                    <a href="{linkadd}/ajax?" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-mini btn-info"><i class="fa fa-plus"></i> Novo </a>
+                    </p>
+            </div>
+            <!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <form method="get">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Pesquisar por..." name="filter">
+                        <span class="input-group-btn">
+        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      </span>
+                    </div>
+                    <!-- /input-group -->
+                </form>
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+            <table id="grid2" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th><a href="{url}{link}/ajax?ordem=id&dir={sort|fsort:id:asc}" class="ajax">Id<i class="fa fa-sort{sort|fsort:id::-} pull-right"></i></a></th>
+                        <th><a href="{url}{link}/ajax?ordem=hash&dir={sort|fsort:hash:asc}" class="ajax">Hash<i class="fa fa-sort{sort|fsort:hash::-} pull-right"></i></a></th>
+                        <th><a href="{url}{link}/ajax?ordem=ativo&dir={sort|fsort:ativo:asc}" class="ajax">Ativo<i class="fa fa-sort{sort|fsort:ativo::-} pull-right"></i></a></th>
+                        <th><a href="{url}{link}/ajax?ordem=expiracao&dir={sort|fsort:expiracao:asc}" class="ajax">Expiracao<i class="fa fa-sort{sort|fsort:expiracao::-} pull-right"></i></a></th>
+                        <th><a href="{url}{link}/ajax?ordem=usuario_id&dir={sort|fsort:usuario_id:asc}" class="ajax">Usuario Id<i class="fa fa-sort{sort|fsort:usuario_id::-} pull-right"></i></a></th>
+                        <th class="col-md-2">Ações<i></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- BEGIN linha -->
+                    <tr>
+                        <td>{grid->id}</td>
+                        <td>{grid->hash}</td>
+                        <td>{grid->ativo}</td>
+                        <td>{grid->expiracao}</td>
+                        <td>{grid->usuario_id}</td>
+                        <td>
+                            <a href="{linkupdate}/ajax?" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-mini btn-success"><i class="fa fa-edit"></i></a>
+                            <a href="javascript:void(0)" onclick="if(confirm('Deseja excluir esse registro?')) self.location='{linkdelete}'" class="btn btn-mini btn-danger"><i class="fas fa-trash"></i></a>
+
+                                </ul>
+                        </td>
+                    </tr>
+                       <!-- END linha -->
+                </tbody>
+            </table>
+            <ul class="pagination pull-right">
+                <li><a href="{url}{link}/ajax{linkpaginicio}" class="ajax">«</a></li>
+                <!-- BEGIN paginador -->
+                <li class="{active}"><a href="{url}{link}/ajax{linkpag}" class="ajax">{pag}</a></li>
+                   <!-- END paginador -->
+                <li><a href="{url}{link}/ajax{linkpagfinal}" class="ajax">»</a></li>
+            </ul>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+{script}

@@ -1,0 +1,132 @@
+<div class="container-fluid" style="padding:0px;">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-ajax form-post show-alert" action="{url}/{module}/{controller}/savepermission/{grupo_id}/ajax{query|eiif::?}{query}" name="form1" method="post" enctype="multipart/form-data">
+                        <table id="grid2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Descricao</th>
+                                    <th class="col-md-1">Controle Total<i></i></th>
+                                    <th class="col-md-1">Ler<i></i></th>
+                                    <th class="col-md-1">Adicionar<i></i></th>
+                                    <th class="col-md-1">Atualizar<i></i></th>
+                                    <th class="col-md-1">Apagar<i></i></th>
+                                    <th class="col-md-1">Imprimir<i></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- BEGIN linha -->
+                                <!-- BEGIN bgrupo -->
+                                <tr><td colspan="8" bgcolor="#ABCDEF" ><strong><font color="#FFF">{grid->grupomodulo->nome}</font></strong></td></tr>
+                                <!-- END bgrupo -->
+                                <tr>
+                                    <td>{grid->nome}</td>
+                                    <td>{grid->descricao}</td>
+                                    <td>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <ul class="icheck-list">
+                                                    <li>
+                                                        <input type="checkbox" class=" filled-in chk-col-light-blue" name="full" value="1" id="{grid->nome}" onclick="toggleMaster(this)" >
+                                                        <label for="{grid->nome}" ></label>
+                                                    </li>   
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <ul class="icheck-list">
+                                                    <li>
+                                                        <input type="checkbox" class=" filled-in chk-col-light-blue {grid->nome}" id="read{grid->id}" name="read{grid->id}" value="1" onclick="toggleSlave(this)" {permissao->read|siif:1:checked:}>
+                                                        <label for="read{grid->id}" ></label>
+                                                    </li>   
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <ul class="icheck-list">
+                                                    <li>
+                                                        <input type="checkbox" class=" filled-in chk-col-light-blue {grid->nome}" id="create{grid->id}" name="create{grid->id}" value="1" onclick="toggleSlave(this)" {permissao->create|siif:1:checked:}>
+                                                        <label for="create{grid->id}" ></label>
+                                                    </li>   
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <ul class="icheck-list">
+                                                    <li>
+                                                        <input type="checkbox" class=" filled-in chk-col-light-blue {grid->nome}" id="update{grid->id}" name="update{grid->id}" value="1" onclick="toggleSlave(this)" {permissao->update|siif:1:checked:}>
+                                                        <label for="update{grid->id}" ></label>
+                                                    </li>   
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <ul class="icheck-list">
+                                                    <li>
+                                                        <input type="checkbox" class=" filled-in chk-col-light-blue {grid->nome}" id="delete{grid->id}" name="delete{grid->id}" value="1" onclick="toggleSlave(this)" {permissao->delete|siif:1:checked:}>
+                                                        <label for="delete{grid->id}" ></label>
+                                                    </li>   
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <ul class="icheck-list">
+                                                    <li>
+                                                        <input type="checkbox" class=" filled-in chk-col-light-blue {grid->nome}" id="print{grid->id}" name="print{grid->id}" value="1" onclick="toggleSlave(this)" {permissao->print|siif:1:checked:}>
+                                                        <label for="print{grid->id}" ></label>
+                                                    </li>   
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- END linha -->
+                            </tbody>
+                        </table>
+                        <div class="box-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-remove"></i> Cancelar</button>
+                            <button type="submit" class="btn btn-success pull-right" value="save" name="acao"> <i class="fa fa-save"> </i> Salvar </button>
+                        </div>
+                        <script type="text/javascript">
+                            function toggleMaster(source) {
+                                var checkboxes = document.getElementsByClassName(source.id);
+                                for (var i = 0, n = checkboxes.length; i < n; i++) {
+                                    checkboxes[i].checked = source.checked;
+                                }
+                            }
+
+                            function toggleSlave(source) {
+                                var master = document.getElementById(source.className);
+                                var checkboxes = document.getElementsByClassName(source.className);
+                                var checked = true;
+                                for (var i = 0, n = checkboxes.length; i < n; i++) {
+                                    if (checkboxes[i].checked == false)
+                                        checked = false;
+                                }
+                                master.checked = checked;
+                            }
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="card-body">Módulos (clique para abrir as tabelas)
+        <div id="accordionexample" class="accordion" role="tablist" aria-multiselectable="true">
+            <!-- BEGIN block_module -->
+            <div class="card">
+                <div class="card-header" role="tab" id="headingOne">
+                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionexample" href="#collapseexaOne{module_key}" aria-expanded="false" aria-controls="collapseexaOne{contador_tabelas}">
+                            {module}
+                        </a>
+                    </h5>
+                </div>
+
+                <div id="collapseexaOne{module_key}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="card-body">
+                        <table class="tablesaw table-bordered table tablesaw-columntoggle tablesaw-sortable table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col" data-tablesaw-priority="persist" style="cursor:pointer;">Tabela<i class="sortable-td-desc"></i></th>
+                                    <th scope="col" data-tablesaw-priority="2">MVC</th>
+                                    <th scope="col" data-tablesaw-priority="1">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- BEGIN block_row -->
+                                <tr>
+                                    <td class="title footable-even footable-detail-show"><a href="{url}/{table_module}/{table}/grid"><strong>{table}</strong></a></td>
+                                    <td>
+                                        <i class="icon fa fa-{model|siif:1:check text-green:close text-red}"></i>
+                                        <i class="icon fa fa-{view|siif:1:check text-green:close text-red}"></i>
+                                        <i class="icon fa fa-{controller|siif:1:check text-green:close text-red}"></i>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <span data-toggle="tooltip" title="Ações"  style="display:inline-block;"><button type="button" class="btn btn-info dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="fas fa-cog"></i>
+
+                                                </button>
+                                                <div class="dropdown-menu bounce"  style="position: absolute; transform: translate3d(0px, -2px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                    <a class="dropdown-item ajax show-alert" href="{url}/app/codigo/generate/{table_module}/{table}" data-location="{url}/app/codigo/generate/{table_module}/{table}" target="#content"><i class=" fas fa-edit"></i>&nbsp;&nbsp;Gerar Código</a>
+                                                </div>
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- END block_row --> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- END block_module -->
+        </div>
+    </div>
+</div>
+<!-- /.box -->

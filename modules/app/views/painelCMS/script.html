@@ -1,0 +1,1253 @@
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="{plugins}jquery/jquery.min.js"></script>
+
+<!-- Bootstrap tether Core JavaScript -->
+<script src="{plugins}bootstrap/js/popper.min.js"></script>
+
+<script src="{plugins}bootstrap/js/bootstrap.min.js"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="{plugins}main/js/jquery.slimscroll.js"></script>
+<!--Wave Effects -->
+<script src="{plugins}main/js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="{plugins}main/js/sidebarmenu.js"></script>
+<!--stickey kit -->
+<script src="{plugins}sticky-kit-master/dist/sticky-kit.min.js"></script>
+<script src="{plugins}sparkline/jquery.sparkline.min.js"></script>
+<!--Custom JavaScript -->
+<script src="{plugins}main/js/custom.min.js"></script>
+<!-- Footable -->
+<script src="{plugins}footable/js/footable.all.min.js"></script>
+<script src="{plugins}bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+<!--FooTable init-->
+<script src="{plugins}main/js/footable-init.js"></script>
+<!-- Sweet-Alert  -->
+<script src="{plugins}sweetalert/sweetalert.min.js"></script>
+<script src="{plugins}sweetalert/jquery.sweet-alert.custom.js"></script>
+<!-- Editable -->
+<script src="{plugins}jsgrid/db.js"></script>
+<script type="text/javascript" src="{plugins}jsgrid/dist/jsgrid.min.js"></script>
+<script src="{plugins}main/js/jsgrid-init.js"></script>
+<!-- jQuery peity -->
+<script src="{plugins}tablesaw-master/dist/tablesaw.js"></script>
+<!-- jQuery scrolling tabs -->
+<script src="{plugins}jquery-scrolling-tabs/jquery.scrolling-tabs.min.js"></script>
+<!-- ============================================================== -->
+<!-- Style switcher -->
+<!-- ============================================================== -->
+<script src="{plugins}styleswitcher/jQuery.style.switcher.js"></script>
+
+<script src="{plugins}moment/moment.js"></script>
+<script src="{plugins}bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+
+<!-- Color Picker Plugin JavaScript -->
+<script src="{plugins}jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
+<script src="{plugins}jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
+<script src="{plugins}jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
+
+<!-- Clock Plugin JavaScript -->
+<script src="{plugins}clockpicker/dist/jquery-clockpicker.min.js"></script>
+
+<!-- Date Picker Plugin JavaScript -->
+<script src="{plugins}bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<!-- Date range Plugin JavaScript -->
+<script src="{plugins}timepicker/bootstrap-timepicker.min.js"></script>
+<script src="{plugins}bootstrap-daterangepicker/daterangepicker.js"></script>
+
+<!-- wysuhtml5 Plugin JavaScript -->
+<script src="{plugins}html5-editor/wysihtml5-0.3.0.js"></script>
+<script src="{plugins}html5-editor/bootstrap-wysihtml5.js"></script>
+
+<!-- selects -->
+<script src="{plugins}switchery/dist/switchery.min.js"></script>
+<script src="{plugins}select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+<script src="{plugins}bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+<script src="{plugins}bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="{plugins}multiselect/js/jquery.multi-select.js"></script>
+
+
+<!-- Image cropper JavaScript -->
+<script src="{plugins}cropper/cropper.min.js"></script>
+
+<script src="{plugins}main/js/mask.js"></script>
+
+<!-- Dropzone Plugin JavaScript -->
+<script src="{plugins}dropzone-master/dist/dropzone.js"></script>
+
+
+<script src="{plugins}wizard/jquery.steps.min.js"></script>
+<script src="{plugins}wizard/jquery.validate.min.js"></script>
+<!-- Sweet-Alert  -->
+<script src="{plugins}wizard/steps.js"></script>
+
+<!-- icheck -->
+<script src="{plugins}icheck/icheck.min.js"></script>
+<script src="{plugins}icheck/icheck.init.js"></script>
+
+<script src="{plugins}js/validation.js"></script>
+
+<!-- <script src="{plugins}fontawesome-iconpicker-1.3.1/dist/js/fontawesome-iconpicker.js"></script> -->
+<script src="{plugins}fontawesome-free-5.15.2-web/js/all.min.js"></script>
+<!--Nestable js -->
+<script src="{plugins}nestable/jquery.nestable.js"></script>
+<!-- Ace Editor -->
+<script src="{plugins}ace-editor/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    !function (window, document, $) {
+        "use strict";
+        $("input.validform, select.validform, textarea.validform").not("[type=submit]").jqBootstrapValidation(),
+                $(".skin-square input").iCheck({
+            checkboxClass: "icheckbox_square-green",
+            radioClass: "iradio_square-green"
+        }),
+                $(".touchspin").TouchSpin();
+        //$(".switchBootstrap").bootstrapSwitch()
+    }(window, document, jQuery);
+</script>
+
+<script src="{plugins}dropify/dist/js/dropify.min.js"></script>
+
+
+<script src="{plugins}main/js/class_gridedit.js"></script>
+<script>
+
+</script>
+
+<script>
+    //Padrão para todo ajax
+    $.ajaxSetup({
+        timeout: 60000
+    });
+
+    //Ao voltar no navegador, garante o recarregamento da página
+    window.addEventListener("popstate", function (e) {
+        window.location.reload();
+    });
+
+    //Função para atualizar querystring do url
+    function updateQueryString(key, value, url) {
+        if (!url)
+            url = window.location.href;
+        var re = new RegExp("([?&])" + key.replace(/\[/g, '\\[').replace(/\]/g, '\\]') + "=.*?(&|#|$)(.*)", "gi"),
+                hash;
+
+        if (re.test(url)) {
+            if (typeof value !== 'undefined' && value !== null)
+                return url.replace(re, '$1' + key + "=" + value + '$2$3');
+            else {
+                hash = url.split('#');
+                url = hash[0].replace(re, '$1$3').replace(/(&|\?)$/, '');
+                if (typeof hash[1] !== 'undefined' && hash[1] !== null)
+                    url += '#' + hash[1];
+                return url;
+            }
+        } else {
+            if (typeof value !== 'undefined' && value !== null) {
+                var separator = url.indexOf('?') !== -1 ? '&' : '?';
+                hash = url.split('#');
+                url = hash[0] + separator + key + '=' + value;
+                if (typeof hash[1] !== 'undefined' && hash[1] !== null)
+                    url += '#' + hash[1];
+                return url;
+            } else
+                return url;
+        }
+    }
+
+    //Deve ser executada no on document ready e ajax complete, para inicializar
+    //componentes necessários
+    function initializeComponents() {
+        //Inicializa o wizard
+        //Função definida no steps.js
+        initializeWizard();
+
+        //$('.checked_table_custom').on('change', function(event) {
+        //alert('click');
+        /*if ($(this).is(':checked')) {
+         $('#grid_body_priorities_' + $(this).val()).prop('disabled', false);
+         $('#grid_body_order_' + $(this).val()).prop('disabled', false);
+         console.log(1);
+         }
+         else {
+         $('#grid_body_priorities_' + $(this).val()).prop('disabled', true);
+         $('#grid_body_order_' + $(this).val()).prop('disabled', true);
+         console.log(2);
+         }*/
+        //});
+
+        //Inicializa grid
+        if ($('.tablesaw').length > 0)
+            $(document).trigger("enhance.tablesaw");
+
+        //Esconde os tooltips
+        $('.tooltip').hide();
+
+        //Esconde modais
+        $(".modal-backdrop.show").addClass('hide').removeClass('show');
+
+        //Inicializa o multi-select
+        $('.multiSelect').multiSelect();
+
+        $('.icp-auto').iconpicker();
+
+        //Tagsinput
+        $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
+        
+        //Correção de incompatibilidade com steps.js
+        if ($('.validation-wizard').length != 0) {
+            $('.tags-default').each(function() {
+                if($(this).find('.bootstrap-tagsinput').length > 1) {
+                    $(this).find('.bootstrap-tagsinput').first().remove();
+                } 
+            });
+        }
+
+        //Remove href de elementos desabilitados
+        $('a.disabled').prop('href', 'javascript:void(0);');
+
+        //Bootstrap-TouchSpin
+        $(".vertical-spin").TouchSpin({
+            verticalbuttons: true,
+            verticalupclass: 'ti-plus',
+            verticaldownclass: 'ti-minus'
+        });
+        var vspinTrue = $(".vertical-spin").TouchSpin({
+            verticalbuttons: true
+        });
+        if (vspinTrue) {
+            $('.vertical-spin').prev('.bootstrap-touchspin-prefix').remove();
+        }
+
+        // For select 2
+        $(".select2").select2();
+        $('.selectpicker').selectpicker();
+
+        $('.multiSelect').multiSelect();
+
+        $('.nestable2').nestable({
+            group: 1
+        });
+
+        //jQuery scrolling tabs
+        $('.scroll-tabs').scrollingTabs({
+            bootstrapVersion: 4,
+            cssClassLeftArrow: 'fa fa-chevron-left',
+            cssClassRightArrow: 'fa fa-chevron-right'
+        });
+
+        //HTML 5 EDITOR
+        $('.textarea_editor').each(function () {
+            if ($(this).next('[name="_wysihtml5_mode"]').length == 0) {
+                $(this).wysihtml5({
+                    "font-styles": false, //Font styling, e.g. h1, h2, etc. Default true
+                    "emphasis": true, //Italics, bold, etc. Default true
+                    "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+                    "html": false, //Button which allows you to edit the generated HTML. Default false
+                    "link": true, //Button to insert a link. Default true
+                    "image": false, //Button to insert an image. Default true,
+                    "color": false //Button to change color of font  
+                });
+            }
+        })
+
+        ////////////////////////////////////////////////////////////////////////
+        //DROPFY
+
+        // Basic
+        var dropify = $('.dropify').dropify();
+
+        dropify.on('dropify.afterClear', function (event, element) {
+            $(element.element).after("<input type=\"hidden\" name=\"delete_" + $(element.element).prop('name') + "\" value=\"1\">");
+        });
+
+        // Translated
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove: 'Supprimer',
+                error: 'Désolé, le fichier trop volumineux'
+            }
+        });
+
+        // Used events
+        var drEvent = $('#input-file-events').dropify();
+
+        drEvent.on('dropify.beforeClear', function (event, element) {
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+
+        drEvent.on('dropify.afterClear', function (event, element) {
+            alert('File deleted');
+        });
+
+        drEvent.on('dropify.errors', function (event, element) {
+            console.log('Has Errors');
+        });
+
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function (e) {
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        });
+
+        //DROPFY
+        ////////////////////////////////////////////////////////////////////////
+
+        ////////////////////////////////////////////////////////////////////////
+        //IMG CROPPER
+
+        $('.blockcropper').each(function () {
+            var $blockcropper = $(this);
+            var $blockcropperconfig = $blockcropper.next('.blockcropperconfig');
+
+            if ($blockcropperconfig.length > 0) {
+
+                var console = window.console || {log: function () {}};
+                var $image = $blockcropper.find('[data-cropper-id="image"]');
+                var $download = $blockcropperconfig.find('[data-cropper-id="download"]');
+                var $dataX = $blockcropperconfig.find('[data-cropper-id="dataX"]');
+                var $dataY = $blockcropperconfig.find('[data-cropper-id="dataY"]');
+                var $dataHeight = $blockcropperconfig.find('[data-cropper-id="dataHeight"]');
+                var $dataWidth = $blockcropperconfig.find('[data-cropper-id="dataWidth"]');
+                var $dataRotate = $blockcropperconfig.find('[data-cropper-id="dataRotate"]');
+                var $dataScaleX = $blockcropperconfig.find('[data-cropper-id="dataScaleX"]');
+                var $dataScaleY = $blockcropperconfig.find('[data-cropper-id="dataScaleY"]');
+                //var $aspectRatio = $blockcropperconfig.find('[data-cropper-id="aspectRatio"]');
+
+                //Setting default data
+                var data = {
+                    "width" : (!isNaN(parseInt($dataWidth.val()))) ? parseInt($dataWidth.val()) : $dataWidth.data('cropper-default'),
+                    "height" : (!isNaN(parseInt($dataHeight.val()))) ? parseInt($dataHeight.val()) : $dataHeight.data('cropper-default'),
+                    "resizable" : ($blockcropperconfig.find('[data-cropper-id="resizable"]').length) ? !!$blockcropperconfig.find('[data-cropper-id="resizable"]').val() : true
+                };
+
+                var options = {
+                    viewMode: 1,
+                    aspectRatio:data.width/data.height,
+                    preview: '.img-preview',
+                    cropBoxResizable: data.resizable,
+                    dragMode: 'move',
+                    ready: function () {
+                        if (!data.resizable)
+                            $(this).cropper('setData', {width : data.width});
+                    },
+                    zoom: function(event) {       
+                        if (data.width > Math.round($(this).cropper('getData').width * ((event.oldRatio * 100)/event.ratio)/100)) {
+                            return false;
+                        }
+                        //if (!data.resizable)
+                           // $(this).cropper('setData', {width : (data.width * ((event.ratio * 100)/event.oldRatio)/100)});
+                    },
+                    crop: function (e) {
+                        $dataX.val(Math.round(e.x));
+                        $dataY.val(Math.round(e.y));
+                        $dataHeight.val(Math.round(e.height));
+                        $dataWidth.val(Math.round(e.width));
+                        $dataRotate.val(e.rotate);
+                        $dataScaleX.val(e.scaleX);
+                        $dataScaleY.val(e.scaleY);
+                    }
+                };
+
+
+                // Tooltip
+                $('[data-toggle="tooltip"]').tooltip();
+
+
+                // Cropper
+                $image.on({
+                    'build.cropper': function (e) {
+                        console.log(e.type);
+                    },
+                    'built.cropper': function (e) {
+                        console.log(e.type);
+                    },
+                    'cropstart.cropper': function (e) {
+                        console.log(e.type, e.action);
+                    },
+                    'cropmove.cropper': function (e) {
+                        console.log(e.type, e.action);
+                    },
+                    'cropend.cropper': function (e) {
+                        console.log(e.type, e.action);
+                    },
+                    'crop.cropper': function (e) {
+                        console.log(e.type, e.x, e.y, e.width, e.height, e.rotate, e.scaleX, e.scaleY);
+                    },
+                    'zoom.cropper': function (e) {
+                        console.log(e.type, e.ratio);
+                    }
+                }).cropper(options);
+
+
+                // Buttons
+                if (!$.isFunction(document.createElement('canvas').getContext)) {
+                    $blockcropper.find('button[data-method="getCroppedCanvas"]').prop('disabled', true);
+                }
+
+                if (typeof document.createElement('cropper').style.transition === 'undefined') {
+                    $blockcropper.find('button[data-method="rotate"]').prop('disabled', true);
+                    $blockcropper.find('button[data-method="scale"]').prop('disabled', true);
+                }
+
+
+                if ($download.length > 0) {
+                    // Download
+                    if (typeof $download[0].download === 'undefined') {
+                        $download.addClass('disabled');
+                    }
+                }
+
+
+                // Options
+                $blockcropper.find('.docs-toggles').on('change', 'input', function () {
+                    var $this = $(this);
+                    var name = $this.attr('name');
+                    var type = $this.prop('type');
+                    var cropBoxData;
+                    var canvasData;
+
+                    if (!$image.data('cropper')) {
+                        return;
+                    }
+
+                    if (type === 'checkbox') {
+                        options[name] = $this.prop('checked');
+                        cropBoxData = $image.cropper('getCropBoxData');
+                        canvasData = $image.cropper('getCanvasData');
+
+                        options.built = function () {
+                            $image.cropper('setCropBoxData', cropBoxData);
+                            $image.cropper('setCanvasData', canvasData);
+                        };
+                    } else if (type === 'radio') {
+                        options[name] = $this.val();
+                    }
+
+                    $image.cropper('destroy').cropper(options);
+                });
+
+
+                // Methods
+                $blockcropper.find('.docs-buttons').on('click', '[data-method]', function () {
+                    var $this = $(this);
+                    var data = $this.data();
+                    var $target;
+                    var result;
+
+                    if ($this.prop('disabled') || $this.hasClass('disabled')) {
+                        return;
+                    }
+
+                    if ($image.data('cropper') && data.method) {
+                        data = $.extend({}, data); // Clone a new one
+
+                        if (typeof data.target !== 'undefined') {
+                            $target = $(data.target);
+
+                            if (typeof data.option === 'undefined') {
+                                try {
+                                    data.option = JSON.parse($target.val());
+                                } catch (e) {
+                                    console.log(e.message);
+                                }
+                            }
+                        }
+
+                        if (data.method === 'rotate') {
+                            $image.cropper('clear');
+                        }
+
+                        result = $image.cropper(data.method, data.option, data.secondOption);
+
+                        if (data.method === 'rotate') {
+                            $image.cropper('crop');
+                        }
+
+                        switch (data.method) {
+                            case 'scaleX':
+                            case 'scaleY':
+                                $(this).data('option', -data.option);
+                                break;
+
+                            case 'getCroppedCanvas':
+                                if (result) {
+                                    // Bootstrap's Modal
+                                    $blockcropper.find('[data-cropper-id="getCroppedCanvasModal"]').modal().find('.modal-body').html(result);
+
+                                    if (!$download.hasClass('disabled')) {
+                                        $download.attr('href', result.toDataURL('image/jpeg'));
+                                    }
+                                }
+
+                                break;
+                        }
+
+                        if ($.isPlainObject(result) && $target) {
+                            try {
+                                $target.val(JSON.stringify(result));
+                            } catch (e) {
+                                console.log(e.message);
+                            }
+                        }
+                    }
+                });
+
+
+                // Keyboard
+                $(document.body).on('keydown', function (e) {
+
+                    if (!$image.data('cropper') || this.scrollTop > 300) {
+                        return;
+                    }
+
+                    switch (e.which) {
+                        case 37:
+                            e.preventDefault();
+                            $image.cropper('move', -1, 0);
+                            break;
+
+                        case 38:
+                            e.preventDefault();
+                            $image.cropper('move', 0, -1);
+                            break;
+
+                        case 39:
+                            e.preventDefault();
+                            $image.cropper('move', 1, 0);
+                            break;
+
+                        case 40:
+                            e.preventDefault();
+                            $image.cropper('move', 0, 1);
+                            break;
+                    }
+                });
+
+
+                // Import image
+                var $inputImage = $blockcropperconfig.find('[data-cropper-id="inputImage"]');
+                var URL = window.URL || window.webkitURL;
+                var blobURL;
+
+                if (URL) {
+                    $inputImage.change(function () {
+                        var files = this.files;
+                        var file;
+
+                        if (!$image.data('cropper')) {
+                            return;
+                        }
+
+                        if (files && files.length) {
+                            file = files[0];
+
+                            if (/^image\/\w+$/.test(file.type)) {
+                                blobURL = URL.createObjectURL(file);
+                                $image.one('built.cropper', function () {
+
+                                    // Revoke when load complete
+                                    URL.revokeObjectURL(blobURL);
+                                }).cropper('reset').cropper('replace', blobURL);
+                                //$inputImage.val('');
+                                $blockcropper.css('display', 'block');
+
+                                // console.log();
+                            } else {
+                                window.alert('Please choose an image file.');
+                            }
+                        } else {
+                            $blockcropper.css('display', 'none');
+                        }
+                    });
+                } else {
+                    $inputImage.prop('disabled', true).parent().addClass('disabled');
+                }
+            }
+        });
+
+        //IMG CROPPER
+        ////////////////////////////////////////////////////////////////////////
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        }), $(function () {
+            $('[data-toggle="popover"]').popover();
+        }),
+                // MAterial Date picker    
+                $('.jsdate').bootstrapMaterialDatePicker({weekStart: 0, time: false, format: 'DD/MM/YYYY'});
+        $('.jstimepicker').bootstrapMaterialDatePicker({format: 'HH:mm', time: true, date: false});
+        $('.jsdatetimepicker').bootstrapMaterialDatePicker({format: 'DD/MM/YYYY HH:mm'});
+        //$('.jsdatetimepicker').bootstrapMaterialDatePicker({ format : 'dddd DD MMMM YYYY - HH:mm' });
+        $('.jsdatetimepickermin').bootstrapMaterialDatePicker({format: 'DD/MM/YYYY HH:mm', minDate: new Date()});
+
+        // Colorpicker
+        $(".colorpicker").asColorPicker();
+        $(".complex-colorpicker").asColorPicker({
+            mode: 'complex'
+        });
+        $(".gradient-colorpicker").asColorPicker({
+            mode: 'gradient'
+        });
+
+        //bootstrap datepicker
+        jQuery('.mydatepicker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+
+        // Clock pickers
+        $('.clockpicker').clockpicker({
+            donetext: 'Done',
+            'default': 'now'
+        }).find('input').change(function () {
+            console.log(this.value);
+        });
+        
+        //class gridedit - Ingrid
+        $('.tablegridedit').each(function (index, value) { 
+            tab = new gridedit($(this)); 
+        });
+
+        //Executa um array de funções a serem executadas após o carregamento
+        //do jQuery
+        for (i = 0; i < window.deferAfterjQueryLoaded.length; i++) {
+            window.deferAfterjQueryLoaded[i]();
+            window.deferAfterjQueryLoaded.splice(i, 1);
+            i--; //decrement
+        }
+
+    }
+
+    //Função de envio ajax por POST
+    function ajaxSend(url, data, fnSuccess, fnError) {
+        $.ajax({
+            method: 'POST',
+            url: url,
+            data: data,
+            success: function (data, textStatus, jqXHR) {
+                fnSuccess(data, textStatus, jqXHR);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                fnError(jqXHR, textStatus, errorThrown);
+            }
+        });
+    }
+
+    function ajaxSendFormData(url, data, fnSuccess, fnError) {
+        $.ajax({
+            method: 'POST',
+            url: url,
+            data: data,
+            processData: false,
+            contentType: false,
+            success: function (data, textStatus, jqXHR) {
+                fnSuccess(data, textStatus, jqXHR);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                fnError(jqXHR, textStatus, errorThrown);
+            }
+        });
+    }
+
+    //Recarrega o conteúdo de um link por ajax
+    $(document).on('click', '.ajax', function (event) {
+        event.preventDefault();
+        var $this = $(this);
+
+        $this.prop('disabled', true);
+
+        var fnSuccess = function (data) {
+            $($this.prop('target')).html(data);
+            if ($this.data('document-title')) {
+                document.title = $this.data('document-title');
+            }
+            window.history.pushState("", "", $this.prop('href'));
+            swal.close();
+        };
+
+        var fnError = function () {
+            swal({
+                title: ':(',
+                text: "Desculpe, mas houve um erro no carregamento da página. Tente novamente em alguns instantes.",
+                type: 'error'
+            });
+
+        };
+
+        if ($this.hasClass('show-alert')) {
+            var title = ($this.data('alert-title')) ? $this.data('alert-title') : '<i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="color:#9de0f6;"></i>';
+            var text = ($this.data('alert-text')) ? $this.data('alert-text') : '<h2>Aguarde</h2>';
+            swal({
+                title: title,
+                text: text,
+                html: true,
+                timer: 0,
+                showConfirmButton: false
+            }, function () {
+                ajaxSend($this.prop('href'), {response: 'partial_html'}, fnSuccess, fnError);
+            });
+        } else {
+            ajaxSend($this.prop('href'), {response: 'partial_html'}, fnSuccess, function () {
+                return;
+            });
+        }
+
+        if ($this) {
+            $this.prop('disabled', false);
+        }
+
+        return;
+    });
+
+    //Deleta o conteúdo via ajax
+    $(document).on('click', '.delete-ajax', function (event) {
+        event.preventDefault();
+        var $this = $(this);
+
+        var acao = $(document.activeElement).val();
+        var url = $this.data('href');
+        var data = {response: 'json'};
+        var hasAlert = ($this.hasClass('show-alert')) ? true : false;
+
+        var fnSuccess = function (data) {
+            if (typeof data === 'string' || data instanceof String)
+                data = JSON.parse(data);
+            if (!("status" in data)) {
+                if (hasAlert) {
+                    swal({
+                        title: ':(',
+                        text: "Desculpe, mas houve um erro na execução da ação. Tente novamente em alguns instantes.[0]",
+                        type: 'error'
+                    });
+                } else {
+                    alert('Erro na execução da ação. Tente novamente em alguns instantes.[0]');
+                }
+            } else {
+                if (data.status != 1) {
+                    // Aqui deveriamos tratar erro por erro. Mas isso depende do html estar pronto
+                    swal({
+                        title: ':(',
+                        text: data.message,
+                        type: 'error'
+                    });
+                } else {
+                    if ("redirect" in data) {
+                        document.location = data.redirect;
+                    } else if ("message" in data) {
+                        alert(data.message);
+                    } else {
+                        alert("Ação concluída com sucesso");
+                    }
+                    swal.close();
+                }
+            }
+        }
+
+        var fnError = function (jqXHR, textStatus) {
+            if (hasAlert) {
+                swal({
+                    title: ':(',
+                    text: "Desculpe, mas houve um erro na execução da ação. Tente novamente em alguns instantes.[" + textStatus + "]",
+                    type: 'error'
+                });
+            } else {
+                alert('Erro na execução da ação. Tente novamente em alguns instantes.[' + textStatus + ']');
+            }
+        }
+
+        if (hasAlert) {
+            var title = ($this.data('alert-title')) ? $this.data('alert-title') : '<i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="color:#9de0f6;"></i>';
+            var text = ($this.data('alert-text')) ? $this.data('alert-text') : '<h2>Excluindo</h2>';
+            swal({
+                title: 'Ação Irreversível',
+                text: "Você tem certeza que deseja excluir este registro?",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Sim, tenho certeza.',
+                closeOnConfirm: false
+            }, function () {
+                swal({
+                    title: title,
+                    text: text,
+                    html: true,
+                    timer: 500,
+                    showConfirmButton: false
+                }, function () {
+                    ajaxSend(url, data, fnSuccess, fnError);
+                });
+            });
+        } else {
+            ajaxSend(url, data, fnSuccess, fnError);
+        }
+
+        if ($this) {
+            $this.prop('disabled', false);
+        }
+
+        return true;
+    });
+
+    //Deleta o conteúdo via ajax
+    $(document).on('click', '.deletemultiple-ajax', function (event) {
+        event.preventDefault();
+        var $this = $(this);
+
+        var data = [];
+        var count = 0;
+
+        $('#grid :input:checked').each(function (a) {
+            if ($(this).hasClass('checked_table')) {
+                data.push({name: 'ids[]', value: $(this).val()});
+                count++;
+            }
+        });
+
+        var data = $.merge(data, [{name: 'response', value: 'json'}]);
+
+        var url = $this.data('href');
+        var hasAlert = ($this.hasClass('show-alert')) ? true : false;
+
+        var fnSuccess = function (data) {
+            if (typeof data === 'string' || data instanceof String)
+                data = JSON.parse(data);
+            if (!("status" in data)) {
+                if (hasAlert) {
+                    swal({
+                        title: ':(',
+                        text: "Desculpe, mas houve um erro na execução da ação. Tente novamente em alguns instantes.[0]",
+                        type: 'error'
+                    });
+                } else {
+                    alert('Erro na execução da ação. Tente novamente em alguns instantes.[0]');
+                }
+            } else {
+                if (data.status != 1) {
+                    // Aqui deveriamos tratar erro por erro. Mas isso depende do html estar pronto
+                    swal({
+                        title: ':(',
+                        text: data.message,
+                        type: 'error'
+                    });
+                } else {
+                    if ("redirect" in data) {
+                        document.location = data.redirect;
+                    } else if ("message" in data) {
+                        alert(data.message);
+                    } else {
+                        alert("Ação concluída com sucesso");
+                    }
+                    swal.close();
+                }
+            }
+        }
+
+        var fnError = function (jqXHR, textStatus) {
+            if (hasAlert) {
+                swal({
+                    title: ':(',
+                    text: "Desculpe, mas houve um erro na execução da ação. Tente novamente em alguns instantes.[" + textStatus + "]",
+                    type: 'error'
+                });
+            } else {
+                alert('Erro na execução da ação. Tente novamente em alguns instantes.[' + textStatus + ']');
+            }
+        }
+
+        if (hasAlert) {
+            var title = ($this.data('alert-title')) ? $this.data('alert-title') : '<i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="color:#9de0f6;"></i>';
+            var text = ($this.data('alert-text')) ? $this.data('alert-text') : '<h2>Excluindo</h2>';
+            swal({
+                title: 'Ação Irreversível',
+                text: "Você tem certeza que deseja excluir " + count + " registros ?",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Sim, tenho certeza.',
+                closeOnConfirm: false
+            }, function () {
+                swal({
+                    title: title,
+                    text: text,
+                    html: true,
+                    timer: 500,
+                    showConfirmButton: false
+                }, function () {
+                    ajaxSend(url, data, fnSuccess, fnError);
+                });
+            });
+        } else {
+            ajaxSend(url, data, fnSuccess, fnError);
+        }
+
+        if ($this) {
+            $this.prop('disabled', false);
+        }
+
+        return true;
+    });
+
+    //Recarrega o conteúdo de um select por ajax
+    $(document).on('change', '.select-ajax', function (event) {
+        event.preventDefault();
+        var $this = $(this);
+
+        $this.prop('disabled', true);
+
+        var fnSuccess = function (data) {
+            $($this.data('target')).html(data);
+            if ($this.data('document-title')) {
+                document.title = $this.find('option:selected').data('document-title');
+            }
+            window.history.pushState("", "", $this.find('option:selected').data('href'));
+            swal.close();
+        };
+
+        var fnError = function () {
+            swal({
+                title: ':(',
+                text: "Desculpe, mas houve um erro no carregamento da página. Tente novamente em alguns instantes.",
+                type: 'error'
+            });
+
+        };
+
+        if ($this.hasClass('show-alert')) {
+            var title = ($this.find('option:selected').data('alert-title')) ? $this.find('option:selected').data('alert-title') : '<i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="color:#9de0f6;"></i>';
+            var text = ($this.find('option:selected').data('alert-text')) ? $this.find('option:selected').data('alert-text') : '<h2>Aguarde</h2>';
+            swal({
+                title: title,
+                text: text,
+                html: true,
+                timer: 0,
+                showConfirmButton: false
+            }, function () {
+                ajaxSend($this.find('option:selected').data('href'), {response: 'partial_html'}, fnSuccess, fnError);
+            });
+        } else {
+            ajaxSend($this.find('option:selected').data('href'), {response: 'partial_html'}, fnSuccess, function () {
+                return;
+            });
+        }
+
+        if ($this) {
+            $this.prop('disabled', false);
+        }
+
+        return;
+    });
+
+    //Envio um formulário POST por ajax
+    $(document).on('submit', '.form-ajax.form-get', function (event) {
+        event.preventDefault();
+        var $this = $(this);
+
+        var acao = $(document.activeElement).val();
+        var url = $this.prop('action');
+
+        $this.serializeArray().forEach(function (input) {
+            url = updateQueryString(input.name, input.value, url);
+        });
+
+        var data = {response: 'partial_html'};
+        var hasAlert = ($this.hasClass('show-alert')) ? true : false;
+
+        var fnSuccess = function (data) {
+            $($this.data('target')).html(data);
+            if ($this.data('document-title')) {
+                document.title = $this.data('document-title');
+            }
+            window.history.pushState("", "", url);
+            swal.close();
+        };
+
+        var fnError = function () {
+            swal({
+                title: ':(',
+                text: "Desculpe, mas houve um erro no carregamento da página. Tente novamente em alguns instantes.",
+                type: 'error'
+            });
+
+        };
+
+        if ($this.hasClass('show-alert')) {
+            var title = ($this.data('alert-title')) ? $this.data('alert-title') : '<i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="color:#9de0f6;"></i>';
+            var text = ($this.data('alert-text')) ? $this.data('alert-text') : '<h2>Aguarde</h2>';
+            swal({
+                title: title,
+                text: text,
+                html: true,
+                timer: 0,
+                showConfirmButton: false
+            }, function () {
+                ajaxSend(url, data, fnSuccess, fnError);
+            });
+        } else {
+            ajaxSend(url, data, fnSuccess, function () {
+                return;
+            });
+        }
+
+        return true;
+    });
+
+    //Envio um formulário POST por ajax
+    $(document).on('submit', '.form-ajax.form-post', function (event) {
+        event.preventDefault();
+        var $this = $(this);
+
+        var acao = $(document.activeElement).val();
+        var url = $this.prop('action');
+        //var data = $.merge($this.serializeArray(), [{name: 'response', value: 'json'}]);
+        var data = new FormData();
+        data.append('response', 'json');
+        $this.first().find(':input').each(function () {
+            var type = $(this).prop('type');
+            var name = $(this).prop('name');
+            var is_array = (name.slice(-2) == '[]') ? true : false;
+            var value = $(this).val();
+            if (type == "file") {
+                $.each($(this)[0].files, function (i, file) {
+                    data.append(name, file);
+                });
+            } else if (type == 'checkbox' || type == 'radio') {
+                if ($(this).is(':checked')) {
+                    data.append(name, value);
+                }
+            } else {
+                if (is_array) {
+                    var array = $(this).serializeArray();
+                    //name = name.slice(2);
+                    for (key in array) {
+                        data.append(name, array[key].value);
+                    }
+                } else
+                    data.append(name, value);
+            }
+        });
+        var hasAlert = ($this.hasClass('show-alert')) ? true : false;
+
+        var fnSuccess = function (data) {
+            if (typeof data === 'string' || data instanceof String)
+                data = JSON.parse(data);
+            if (!("status" in data)) {
+                if (hasAlert) {
+                    swal({
+                        title: ':(',
+                        text: "Desculpe, mas houve um erro na execução da ação. Tente novamente em alguns instantes.[0]",
+                        type: 'error'
+                    });
+                } else {
+                    alert('Erro na execução da ação. Tente novamente em alguns instantes.[0]');
+                }
+            } else {
+                if (data.status != 1) {
+                    // Aqui deveriamos tratar erro por erro. Mas isso depende do html estar pronto
+                    alert(data.message);
+                } else {
+                    if (acao != 'apply') {
+                        if ("redirect" in data) {
+                            document.location = data.redirect;
+                        } else if ("message" in data) {
+                            alert(data.message);
+                        } else {
+                            alert("Ação concluída com sucesso");
+                        }
+                    } else {
+                        var message = "Ação concluída com sucesso";
+                        if ("message" in data) {
+                            message = data.message;
+                        }
+                        if (hasAlert) {
+                            swal({
+                                title: 'Envio realizado',
+                                text: message,
+                                type: 'success'
+                            });
+                            return;
+                        } else {
+                            alert(message);
+                        }
+                    }
+                }
+            }
+            swal.close();
+        }
+
+        var fnError = function (jqXHR, textStatus) {
+            if (hasAlert) {
+                swal({
+                    title: ':(',
+                    text: "Desculpe, mas houve um erro na execução da ação. Tente novamente em alguns instantes.[" + textStatus + "]",
+                    type: 'error'
+                });
+            } else {
+                alert('Erro na execução da ação. Tente novamente em alguns instantes.[' + textStatus + ']');
+            }
+        }
+
+        if (hasAlert) {
+            var title = ($this.data('alert-title')) ? $this.data('alert-title') : '<i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="color:#9de0f6;"></i>';
+            var text = ($this.data('alert-text')) ? $this.data('alert-text') : '<h2>Enviando</h2>';
+            swal({
+                title: title,
+                text: text,
+                html: true,
+                timer: 0,
+                showConfirmButton: false
+            }, function () {
+                ajaxSendFormData(url, data, fnSuccess, fnError);
+            });
+        } else {
+            ajaxSendFormData(url, data, fnSuccess, fnError);
+        }
+
+        return true;
+    });
+
+    ////////////////////////////////////////////////////////////////////////////
+    //Funções padrão de grid
+
+    $(document).change('.checked_table_p', function (event) {
+        if (!$(event.target).hasClass('checked_table_p')) {
+            return;
+        }
+        if (!$(event.target).is(':checked')) {
+            $('.checked_table').prop('checked', false);
+            $('.checked_table').removeAttr('checked');
+            $('#td_selected').css('display', 'none');
+            $('#td_nselected').css('display', 'inline-block');
+        } else {
+            $('.checked_table').prop('checked', true);
+            $('#td_selected').css('display', 'inline-block');
+            $('#td_nselected').css('display', 'none');
+            $('#qtditemselecionado').html($("input.checked_table[type=checkbox]:checked").length);
+            $('#qtdtotalitem').html($("input.checked_table[type=checkbox]").length);
+        }
+    });
+
+    $(document).change('.checked_table', function (event) {
+        if ($('table').find("input.checked_table[type=checkbox]:checked").length == 0) {
+            $('#td_selected').css('display', 'none');
+            $('#td_nselected').css('display', 'inline-block');
+            $('.checked_table_p').prop('checked', false);
+        } else {
+            $('#td_selected').css('display', 'inline-block');
+            $('#td_nselected').css('display', 'none');
+            $('#qtditemselecionado').html($("input.checked_table[type=checkbox]:checked").length);
+            $('#qtdtotalitem').html($("input.checked_table[type=checkbox]").length);
+        }
+    });
+
+    $(document).on('click', 'button.hard-reset', function (event) {
+        var $this = $(this);
+        var parent = $this.closest('form');
+        var inputs = parent.find('input');
+        inputs.each(function () {
+            $(this).val('');
+        });
+        return false;
+    });
+
+    $('form.dismiss-modal').on('submit', function () {
+        $("#" + $(this).closest('.modal').prop('id')).modal('hide');
+    });
+    //Funções padrão de grid
+    ////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////
+    //Funções padrão de form
+
+    $(document).on('click', '.select-all', function (event) {
+        var $this = $(event.target);
+        $($this.data('select-target')).multiSelect('select_all');
+        return false;
+    });
+
+    $(document).on('click', '.deselect-all', function (event) {
+        var $this = $(event.target);
+        $($this.data('select-target')).multiSelect('deselect_all');
+        return false;
+    });
+
+    $(document).on('change paste keyup', 'input.input-merge-url', function (event) {
+        var array_url = $(this).val().split('://');
+        if (array_url.length > 1) {
+            var url = array_url[1];
+            var protocol = array_url[0] + '://';
+
+            $(this).parent().find('select').find("option[value='" + protocol + "']").prop('selected', true);
+            $(this).val(url);
+        }
+    });
+
+    $(document).on('change paste keyup', '.input-merge-url', function (event) {
+        var protocol = $(this).parent().find('select').val();
+        var url = $(this).parent().find("input[type!='hidden']").val();
+
+        $($(this).data('input-target')).val(protocol + url);
+    });
+
+    //Funções padrão de form
+    ////////////////////////////////////////////////////////////////////////////
+
+    //Funções a serem carregadas após o documento ser carregado
+    $(document).ready(function () {
+        initializeComponents();
+
+<!-- BEGIN block_alert -->
+        var alertHtml =
+                '<div class="card-body alert alert-{tipoalerta} timed-alert">' +
+                '<div>' +
+                '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                '<span aria-hidden="true">×</span>' +
+                '</button>' +
+                '<h3 class="text-{tipoalerta}">' +
+                '<i class="icon {icone}"></i> {tituloalerta}' +
+                '</h3>' +
+                '{mensagemalerta}' +
+                '</div>' +
+                '</div>';
+        $("#contentSection").find('.card-body:first').prepend(alertHtml);
+
+<!-- END block_alert -->
+
+        $(".alert.timed-alert").delay(4000).slideUp(200, function () {
+            $(this).alert('close');
+        });
+
+        //loadAjax();
+        $('.ajax2').bind('click', function (e) {
+            e.preventDefault(); // stop the browser from following the link
+            var url = $(this).attr('href');
+            var target = $(this).attr('target');
+            $('#' + target).load(url); // load the html response into a DOM element
+        });
+
+        // Switchery
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        $('.js-switch').each(function () {
+            new Switchery($(this)[0], $(this).data());
+        });
+
+    });
+
+    $(document).ajaxComplete(function () {
+        initializeComponents();
+    });
+
+</script>

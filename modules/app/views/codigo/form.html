@@ -1,0 +1,86 @@
+<!-- BEGIN bheadnoajax -->    
+<div class="box">
+        <div class="box-header">
+            <h3 class="box-title">{name}</h3>
+        </div>
+    <!-- END bheadnoajax -->
+    <!-- BEGIN bheadajax -->
+<div class="box-header with-border">
+    <h3 class="box-title">{name}</h3>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+    <!-- END bheadajax -->
+<!-- /.box-header -->
+<form class="form-horizontal" action="{{_}action}" name="form1" method="post" {enctype}>
+    <div class="box-body">
+        <!--BEGIN campos -->
+        <div class="form-group">
+            <label for="{campo}" class="col-sm-2 control-label">{labelcampo}</label>
+            <div class="col-sm-10">
+                <!--BEGIN text -->
+                <input type="text" class="form-control" id="{campo}" name="{campo}" value="{{_}form->{campo}}" placeholder="{labelcampo}" {required}>
+                <!-- END text -->
+                <!--BEGIN password -->
+                <input type="password" class="form-control" id="{campo}" name="{campo}" value="{{_}form->{campo}}" placeholder="{labelcampo}" {required}>
+                <!-- END password -->
+                <!--BEGIN data -->
+                <input type="text" class="datepicker" id="{campo}" name="{campo}" value="{{_}form->{campo}}" placeholder="dd/mm/aaaa" {required}>
+                <!-- END data -->
+                <!--BEGIN file -->
+                {{_}form->{campo}|file_img:{campo}:{required|troca:requerido}}
+                <!-- END file -->
+                <!-- BEGIN arquivo -->
+                <div class="input-group">
+                    <input type="text" class="form-control" id="{campo}" name="{campo}" value="{{_}form->{campo}}" placeholder="{labelcampo}" {required}>
+                    <span class="input-group-btn">
+                      <button class="btn btn-secondary select-button" type="button" onclick="arquivo='{campo}'"><i class="fa fa-folder-open"></i></button>
+                </span>
+                </div>
+                <!-- END arquivo -->
+                <!--BEGIN select -->
+                <select class="form-control" id="{campo}" name="{campo}" {required}>
+                    <option value="" {selected}>Selecione</option>
+                    
+                </select>
+                <!-- END select -->
+                <!--BEGIN texto -->
+                {{_}form->{campo}}
+                <!-- END texto -->
+                <!-- BEGIN checkbox -->
+                <input type="checkbox" name="{campo}" value="1" {{_}form->{campo}|siif:1:checked:}>
+                <!-- END checkbox -->
+                <!--BEGIN textarea -->
+                <textarea name="{campo}" rows="10" class="form-control" style="resize: vertical;" {required}>{{_}form->{campo}}</textarea>
+                <!-- END textarea -->
+                <!--BEGIN htmlarea -->
+                <textarea name="{campo}" cols="100" rows="15" class="mytextarea" {required}>{{_}form->{campo}}</textarea>
+                <!-- END htmlarea -->
+                
+            </div>
+        </div>
+        <!-- END campos -->
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-remove"></i> Cancelar</button>
+        <button type="submit" class="btn btn-success pull-right" value="save" name="acao"> <i class="fa fa-save"> </i> Salvar </button>
+    </div>
+    <!-- /.box-footer -->
+</form>
+<!-- BEGIN bfootnoajax -->
+</div>
+<!-- END bfootnoajax -->
+{{_}script}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.form-horizontal').on('submit', function(e) {
+            e.preventDefault();
+            var action = '{{_}action}';
+            var splitaction = action.split('?');
+            var action = splitaction[0] + '/ajax';
+            splitaction.splice(0, 1);
+            action += '?' + splitaction.join('?');
+            envioPadraoForm($(this), action);
+        });
+    });
+</script>

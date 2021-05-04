@@ -1,0 +1,151 @@
+<div class="container-fluid">
+     <form action="{url}/{module}/{controller}/saveprofile/" class="form-ajax form-post show-alert" name="form1" method="post" novalidate enctype="multipart/form-data">
+        <div class="card">
+            <div class="row" style=" padding: 0 20px;">
+                <!-- Column -->
+                <div class="col-lg-4 col-xlg-3 col-md-5" style="margin-top: 20px; ">
+                    <div class="" style="background-color: #f5f5f5; min-height: 100%;">
+                        <div class="card-body">
+                            <center class="m-t-30"> <img src="{userphoto}" class="img-circle" width="150" />
+                                <h4 class="card-title m-t-10">{usuario->nome}</h4>
+                                <!-- h6 class="card-subtitle">Institucional</h6 -->
+
+                            </center>
+                        </div>
+                        <div>
+                            <hr> </div>
+                        <div class="card-body"> 
+                            <small class="text-muted">Email</small>
+                            <h6>{usuario->email|eiif:N\A:__this}</h6> 
+                            <small class="text-muted">Login</small>
+                            <h6>{usuario->login|eiif:N\A:__this}</h6> 
+                            <!-- small class="text-muted p-t-30 db">Redes Sociais</small -->
+
+                            <!-- button class="btn btn-circle btn-secondary"><i class="fa fa-facebook"></i></button -->
+                            <!-- button class="btn btn-circle btn-secondary"><i class="fa fa-google-plus"></i></button -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <!-- Column -->
+                <div class="col-lg-8 col-xlg-9 col-md-7" style="margin-top: 20px; ">
+                    <div class="" style="background-color: #f5f5f5; min-height: 100%;">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs profile-tab" role="tablist">
+
+                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#profile" role="tab">Dados do Perfil</a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#photo" role="tab">Foto</a> </li>
+                            <!-- li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Dados Adicionais</a> </li -->
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content" style="margin-bottom: 20px;">
+
+                            <div class="tab-pane active" id="profile" role="tabpanel">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">Nome <span class="text-danger">*</span></label>
+                                                <input type="text" name="nome" class="form-control validform" required placeholder="Informe seu nome completo aqui." data-validation-required-message="Preenchimento obrigatório" value="{usuario->nome}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">Login </label>
+                                                <input type="text" name="login" class="form-control validform" placeholder="Informe seu login/usuário de acesso." value="{usuario->login}" {usuario->login|eiif::disabled}>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label">E-mail </label>
+                                                <input type="email" name="email" class="form-control validform" placeholder="Informe seu e-mail" value="{usuario->email}" {usuario->email|eiif::disabled}>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <ul class="icheck-list">
+                                                        <li>
+                                                            <input type="checkbox" class=" filled-in chk-col-light-blue" name="change_password" id="change_password" value="1" >
+                                                            <label for="change_password" >&nbsp;&nbsp;&nbsp;&nbsp;Mudar senha</label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 password" style="display:none;">
+                                            <div class="form-group">
+                                                <label class="control-label">Senha <span class="text-danger">*</span></label>
+                                                <div class="controls"><input type="password" name="senha" class="form-control validform" placeholder="Informe sua senha."></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 password" style="display:none;">
+                                            <div class="form-group">
+                                                <label class="control-label">Repita a senha <span class="text-danger">*</span></label>
+                                                <div class="controls"><input type="password" name="senha2" data-validation-match-match="senha" class="form-control validform" placeholder="Repita sua senha" ></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="photo" role="tabpanel">
+                                <div class="card-body">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">Foto </label>
+                                            <input type="file"  name="foto" class="dropify" data-height="200" data-default-file="{usuario->fotourl}" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- div class="tab-pane " id="settings" role="tabpanel">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <h5>URL Fanpage <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="facebookid" class="form-control validform" placeholder="Link de sua página no Facebook" data-validation-regex-regex="((http[s]?|ftp[s]?):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*" data-validation-regex-message="URL inválida">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <h5>URL Google Plus <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="googleid" class="form-control validform" placeholder="Link de sua página no Google Plus" data-validation-regex-regex="((http[s]?|ftp[s]?):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*" data-validation-regex-message="URL inválida">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div -->
+                        </div>
+                        <!-- div class="card-body" style=" position: absolute; bottom: 0px;">
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary"><i class="fa fa-times"></i> Cancelar</button>
+                                <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i> Excluir</button>
+                                <button type="button" class="btn btn-info"><i class="fa fa-check"></i> Aplicar</button>
+                                <button type="submit" class="btn btn-success"><i class="fa fa-floppy-o"></i> Salvar</button>
+                            </div>
+                        </div -->
+                    </div>
+                </div>
+                <!-- Column -->
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-actions">
+                <a href="{url_cancel}" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Voltar</a>
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-info pull-right" value="save" name="acao"> <i class="fa fa-save"> </i> Salvar </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    {scripts}
+</script>

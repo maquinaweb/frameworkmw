@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <!-- BEGIN block_grid_header -->
+    <th>{header}</th>
+    <!-- END block_grid_header -->
+  </tr>
+    <!-- BEGIN block_grid_row -->
+    <tr>
+        <!-- BEGIN block_grid_column -->
+        <td>{column}</td>
+        <!-- END block_grid_column --> 
+    </tr> 
+    <!-- END block_grid_row -->  
+</table>

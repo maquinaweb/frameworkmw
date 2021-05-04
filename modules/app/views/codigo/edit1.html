@@ -1,0 +1,85 @@
+<script language="Javascript" type="text/javascript" src="{url}/var/plugins/edit_area/edit_area_full.js"></script>
+<link rel="stylesheet" type="text/css" href="{url}/var/plugins/elfinder/css/elfinder.min.css">
+
+		<!-- elFinder JS (REQUIRED) -->
+		<script src="{url}/var/plugins/elfinder/js/elfinder.min.js"></script>
+<script type="text/javascript" src="{url}/var/plugins/tinymce/js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="{url}/var/plugins/tinymce/js/tinymce/langs/pt_BR.js"></script>
+<script type="text/javascript">
+		function elFinderBrowser (callback, value, meta) {
+			tinymce.activeEditor.windowManager.open({
+				file: '{url}/var/plugins/elfinder/elfinder.html',// use an absolute path!
+				title: 'Arquivos',
+				width: 900,	
+				height: 450,
+				resizable: 'yes'
+			}, {
+				oninsert: function (file, fm) {
+					var url, reg, info;
+
+					// URL normalization
+					url = file.url;
+					reg = /\/[^/]+?\/\.\.\//;
+					while(url.match(reg)) {
+						url = url.replace(reg, '/');
+					}
+					
+					// Make file info
+					info = file.name + ' (' + fm.formatSize(file.size) + ')';
+
+					// Provide file and text for the link dialog
+					if (meta.filetype == 'file') {
+						callback(url, {text: info, title: info});
+					}
+
+					// Provide image and alt text for the image dialog
+					if (meta.filetype == 'image') {
+						callback(url, {alt: info});
+					}
+
+					// Provide alternative source and posted for the media dialog
+					if (meta.filetype == 'media') {
+						callback(url);
+					}
+				}
+			});
+			return false;
+		}
+		// TinyMCE init
+		tinymce.init({
+			selector: ".mytextarea",
+			height : 400,
+			plugins: [
+        "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code fullscreen",
+        "insertdatetime media nonbreaking save table contextmenu directionality",
+        "emoticons template paste textcolor colorpicker textpattern"
+    ],
+    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+    toolbar2: "print preview media | forecolor backcolor emoticons",
+    image_advtab: true,
+    templates: [
+        {title: 'Test template 1', content: 'Test 1'},
+        {title: 'Test template 2', content: 'Test 2'}
+    ],
+			relative_urls: false,
+			remove_script_host: false,
+			file_picker_callback : elFinderBrowser
+		});
+	</script>
+
+
+<form method="post">
+<p><textarea name="grid" cols="100" rows="15" class="mytextarea">{grid}</textarea></p>
+    <p><textarea name="form" cols="100" rows="15" class="mytextarea" >{form}</textarea></p>
+    <p><textarea name="model" style="height: 350px; width: 100%;" id="model">{model}</textarea></p>
+    
+    <div class="box-footer">
+        <button type="reset" class="btn btn-danger"><i class="fa fa-remove"></i> Cancelar</button>
+        <button type="submit" class="btn btn-success pull-right" value="save" name="gerar"> <i class="fa fa-save"> </i> Salvar </button>
+    </div>
+    <!-- /.box-footer -->
+</form>
+      
+  </script>
+</head>

@@ -1,0 +1,20 @@
+<div class="col-md-5 align-self-center">
+    <h3 class="text-themecolor">{title_breadcrumb}</h3>
+</div>
+<div class="col-md-7 align-self-center">
+    <ol class="breadcrumb">
+        <!-- BEGIN block_breadcrumb -->
+        <li class="breadcrumb-item {is_active|siif:1:active:}">
+            <!-- BEGIN block_breadcrumb_has_href -->
+            <a href="{url}" class="ajax show-alert" target="#content">{name}</a>
+            <!-- END block_breadcrumb_has_href -->
+            <!-- BEGIN block_breadcrumb_no_href -->
+            {name}
+            <!-- END block_breadcrumb_no_href -->
+        </li>
+        <!-- END block_breadcrumb -->
+    </ol>
+</div>
+<div>
+    <!-- <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="fas fa-cog text-white"></i></button> -->
+</div>

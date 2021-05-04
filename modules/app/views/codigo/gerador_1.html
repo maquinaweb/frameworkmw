@@ -1,0 +1,228 @@
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Geração de Cadastro</h3>
+    </div>
+    <!-- /.box-header -->
+    <form method="post" class="form-horizontal">
+        <div class="box-body">
+            <div class="form-group">
+                <label for="titulo_grid" class="col-sm-2 control-label">Titulo da Grid</label>
+                <div class="col-sm-10">
+                    <input type="text" name="titulo_grid" size="25" value="{titulo_grid}" class="form-control">
+                </div>
+            </div>
+            <p> </p>
+            <div class="form-group">
+                <label for="titulo_form" class="col-sm-2 control-label">Titulo do Form</label>
+                <div class="col-sm-10">
+                    <input type="text" name="titulo_form" size="25" value="{titulo_form}" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="chavegeral" class="col-sm-2 control-label">Chave Geral</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="chavegeral" name="chavegeral" placeholder="Chave geral" >
+                </div>
+            </div>
+            <div class="form-group col-sm-3">
+                <label for="modificar" class="control-label">Modificar Model</label>
+                <div class="col-sm-2">
+                    <input type="checkbox" name="modificar_model" value="1">
+                </div>
+            </div>
+            <div class="form-group col-sm-3">
+                <label for="titulo_form" class="control-label">Formulario Ajax</label>
+                <div class="col-sm-2">
+                    <input type="checkbox" name="ajax" value="1" checked>
+                </div>
+            </div>
+            <div class="form-group col-sm-3">
+                <label for="titulo_form" class="control-label">Criar Menu</label>
+                <div class="col-sm-2">
+                    <input type="checkbox" id="menu" name="menu" value="1" {check_menu}>
+                </div>
+            </div>
+            <div class="form-group col-sm-3">
+                <label for="titulo_form" class="control-label">Criar Módulo</label>
+                <div class="col-sm-2">
+                    <input type="checkbox" id="modulo" name="modulo" value="1" {check_modulo}>
+                </div>
+            </div>
+            <!--div class="box-header col-sm-10">
+                <h3 class="box-title">Menu</h3>
+            </div>
+            <div class="form-group col-sm-10">
+                <label for="menu_id" class="col-sm-2 control-label">Menu Pai</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="menu_id" name="menu_id">
+                        <option value="" >Selecione</option>
+                        {form->selectmenuid}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-sm-10">
+                <label for="nome" class="col-sm-2 control-label">Nome</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nome" name="nome" value="{form->nome}" placeholder="Nome" maxlength="40">
+                </div>
+            </div>
+            <div class="form-group col-sm-10">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="url" class="col-sm-4 control-label">Url</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="url" name="url" value="{form->url}" placeholder="Url"  maxlength="400">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="icone" class="col-sm-4 control-label">Icone</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="icone" name="icone" value="{form->icone}" placeholder="Icone">
+                        </div>
+                    </div>
+                </div>
+            </div-->
+        </div>
+        <div id="div_menu" data-carregado="0">
+        </div>
+        <div id="div_modulo" data-carregado="0">
+        </div>
+        <div class="box-body">
+            <table id="grid2" class="table table-bordered table-hover">
+                <tr>
+                    <th>Campo</th>
+                    <th class="col-sm-1">Obrigatório</th>
+                    <th class="col-sm-1">Imutável</th>
+                    <th>Label</th>
+                    <th>Controle</th>
+                    <th>
+                        <input type="checkbox" name="grid" value="1" checked> Grid</th>
+                    <th>
+                        Responsivo</th>
+                    <th>
+                        <input type="checkbox" name="form" value="1" checked> Form</th>
+                    <th>Regex validação</th>
+                </tr>
+                <!-- BEGIN campos -->
+                <tr>
+                    <td>{campo}</td>
+                    <td>
+                        <!-- BEGIN brequerido -->
+                        <input type="checkbox" name="requerido_{campo}" value="CheckBox">
+                        <!-- END brequerido -->
+                        <input type="hidden" name="max_{campo}" size="25" value="{max}" class="form-control">
+                    </td>
+                    <td>
+                        <!-- BEGIN brequerido2 -->
+                        <input type="checkbox" name="imutavel_{campo}" value="CheckBox">
+                        <!-- END brequerido2 -->
+                    </td>
+                    <td>
+                        <input type="text" name="label_{campo}" size="25" value="{label}" class="form-control">
+                    </td>
+                    <td>
+                        <select name="controle_{campo}" class="form-control">
+                            <option value="text">Text Box</option>
+                            <option value="textarea">Text Area</option>
+                            <option value="htmlarea">HTML Area</option>
+                            <option value="password">Password</option>
+                            <option value="checkbox">Checkbox</option>
+                            <option value="data" {sdata}>Data</option>
+                            <option value="file">File</option>
+                            <option value="arquivo">Seletor de Arquivos</option>
+                            <option value="select" {sselect}>Select</option>
+                            <option value="texto" {stexto}>Somente Texto</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="grid_{campo}" name="grid_{campo}" data-campo="{campo}" value="CheckBox" class="input-grid" checked>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="responsivo_{campo}" name="responsivo_{campo}" data-campo="{campo}" value="1" class="input-responsivo" checked>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="form_{campo}" value="CheckBox" checked>
+                    </td>
+                    <td>
+                        <input type="text" name="regex_{campo}" size="25" value="" class="form-control">
+                    </td>
+                </tr>
+                <!-- END campos -->
+            </table>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <button type="reset" class="btn btn-danger"><i class="fa fa-remove"></i> Cancelar</button>
+            <button type="submit" class="btn btn-success pull-right" value="save" name="gerar"> <i class="fa fa-save"> </i> Salvar </button>
+        </div>
+        <!-- /.box-footer -->
+    </form>
+</div>
+<!-- /.box -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        //Carrega div de módulos
+        $('#modulo').on('change', function(){
+            if ($(this).is(':checked')) {
+                if($('#div_modulo').data('carregado') == '0') {
+                    $('#div_modulo').load('{url}/cadastro/form/modulo/ajax?nome=cadastro/{tabela}', function() {
+                        $(this).find('.box-body').unwrap();
+                        $(this).find('.box-footer').remove();
+                        $(this).find(':input').each(function() {
+                            $(this).prop('name', 'modulo_' + $(this).prop('name'));
+                        });
+                        $(this).find('#menu_id').append(new Option("Este", "-1"));
+                        $(this).prepend('<hr>');
+                        $(this).append('<hr>');
+                    });
+                    $('#div_modulo').data('carregado', '1');
+                }
+                $('#div_modulo').find(':input').prop('disabled', false);
+                $('#div_modulo').show(250);
+            }
+            else {
+                $('#div_modulo').find(':input').prop('disabled', true);
+                $('#div_modulo').hide(150);
+            }
+        });
+        
+        //Carrega div de menu
+        $('#menu').on('change', function(){
+            if ($(this).is(':checked')) {
+                if($('#div_menu').data('carregado') == '0') {
+                    $('#div_menu').load('{url}/cadastro/form/menu/ajax?tabela={tabela}', function() {
+                        $(this).find('.box-body').unwrap();
+                        $(this).find('.box-footer').remove();
+                        $(this).find(':input').each(function() {
+                            $(this).prop('name', 'menu_' + $(this).prop('name'));
+                        });
+                        $(this).prepend('<hr>');
+                        $(this).append('<hr>');
+                    });
+                    $('#div_menu').data('carregado', '1');
+                }
+                $('#div_menu').find(':input').prop('disabled', false);
+                $('#div_menu').show(250);
+            }
+            else {
+                $('#div_menu').find(':input').prop('disabled', true);
+                $('#div_menu').hide(150);
+            }
+        });
+        
+        $('.input-grid').on('change', function() {
+            if ($(this).is(':checked')) {
+                $('#responsivo_'+ $(this).data('campo')).prop('disabled', false);
+            }
+            else {
+                $('#responsivo_'+ $(this).data('campo')).prop('checked', false);
+                $('#responsivo_'+ $(this).data('campo')).prop('disabled', true);
+            }
+        });
+        
+        $('#modulo').triggerHandler('change');
+        $('#menu').triggerHandler('change');
+    });
+</script>

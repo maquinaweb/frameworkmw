@@ -1,0 +1,374 @@
+<style>
+/*desaparece setinha*/
+.tablesaw-bar.mode-columntoggle{ display:none;}
+</style>
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-outline-info">
+                <div class="card-body"> 
+                    <div class="form-body">
+                        <div class="row" id="validation">
+                            <div class="col-md-12 wizard-content">
+                                <form action="{url}/{module}/{controller}/save/{save_module}/{save_table}" method="post" class="validation-wizard wizard-circle">
+                                    <!-- Grid: Corpo -->
+                                    <h6>Grid: Corpo</h6>
+                                    <section>
+                                        <div class="dataTables_wrapper">
+                                            <div class="input-group">
+                                                 <ul class="icheck-list">
+                                                     <li>
+                                                         <input type="checkbox" class="filled-in chk-col-light-blue" name="has_grid" id="has_grid" checked="checked" value="1">
+                                                         <label for="has_grid" >&nbsp;&nbsp;&nbsp;&nbsp;Possui Grid?</label>
+                                                     </li>
+                                                 </ul>
+                                            </div>
+                                            <div class="dataTables_grid" data-checkbox-parent="has_grid">
+                                                <table id="grid" class="tablesaw table-bordered table tablesaw-columntoggle tablesaw-sortable table-bordered table-striped" data-tablesaw-mode="columntoggle" data-tablesaw-sortable data-tablesaw-minimap >
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" data-tablesaw-priority="persist" width="30">
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist" style="cursor:pointer;">
+                                                                Campo
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist" >
+                                                                Prioridade
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist">
+                                                                Ordem
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- BEGIN block_grid_body_row -->
+                                                        <tr>
+                                                            <td>
+                                                                <input type="checkbox" id="md_grid_checkbox_{column_counter}" name="grid_body[columns]" class="filled-in chk-col-light-blue checked_table_custom grid_body" value="{column}" checked="checked">
+                                                                <label for="md_grid_checkbox_{column_counter}" data-toggle="tooltip" title="Selecionar"></label>
+                                                            </td>
+                                                            <td class="title footable-even footable-detail-show">
+                                                                <strong>{column}</strong>
+                                                            </td>
+                                                            <td>
+                                                                <input class="vertical-spin" type="text" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" value="1" id="grid_body_priorities_{column}" name="grid_body[priorities][{column}]" style="max-width: 50px;">
+                                                            </td>
+                                                            <td>
+                                                                <input class="vertical-spin" type="text" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" value="{column_counter}" id="grid_body_order_{column}" name="grid_body[order][{column}]" style="max-width: 50px;">
+                                                            </td>
+                                                        </tr>
+                                                        <!-- END block_grid_body_row -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!-- Form: Corpo -->
+                                    <h6>Form: Corpo</h6>
+                                    <section>
+                                        <div class="dataTables_wrapper">
+                                            <div class="input-group">
+                                                 <ul class="icheck-list">
+                                                     <li>
+                                                         <input type="checkbox" class="filled-in chk-col-light-blue" name="has_form" id="has_form" checked="checked" value="1">
+                                                         <label for="has_form" >&nbsp;&nbsp;&nbsp;&nbsp;Possui Form?</label>
+                                                     </li>
+                                                 </ul>
+                                            </div>
+                                            <div class="dataTables_grid" data-checkbox-parent="has_form">
+                                                <table id="form" class="tablesaw table-bordered table tablesaw-columntoggle tablesaw-sortable table-bordered table-striped" data-tablesaw-mode="columntoggle" data-tablesaw-sortable data-tablesaw-minimap >
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" data-tablesaw-priority="persist" width="30">
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist" style="cursor:pointer;">
+                                                                Campo
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist" style="cursor:pointer;">
+                                                                Label
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist">
+                                                                Ordem
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist" >
+                                                                Req
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist" width="70">
+                                                                Tipo
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist" >
+                                                                Máscara
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- BEGIN block_form_body_row -->
+                                                        <tr>
+                                                            <td>
+                                                                <input type="checkbox" id="md_grid_checkbox_{column_counter}" name="form_body[columns]" class="filled-in chk-col-light-blue checked_table_custom form_body" value="{column}" checked="checked">
+                                                                <label for="md_grid_checkbox_{column_counter}" data-toggle="tooltip" title="Selecionar"></label>
+                                                            </td>
+                                                            <td class="title footable-even footable-detail-show">
+                                                                <strong>{column}</strong>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" name="form_body[label][{column}]" class="form-control" placeholder="{column}" value="{column_preset}">
+                                                            </td>
+                                                            <td>
+                                                                <input class="vertical-spin" type="text" data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" value="{column_counter}" id="form_body_order_{column}" name="form_body[order][{column}]" style="max-width: 50px;">
+                                                            </td>
+                                                            <td>
+                                                                <input type="checkbox" id="req_form_checkbox_{column_counter}" name="form_body[required][{column}]" class="filled-in chk-col-light-blue checked_table_custom form_body" value="1" checked="checked">
+                                                                <label for="req_form_checkbox_{column_counter}" data-toggle="tooltip" title="Selecionar"></label>
+                                                            </td>
+                                                            <td>
+                                                                <select class="select2 form-control custom-select" name="select2" style="width: 100%; height:36px;" >
+                                                                    <option value="input_text">Campo de texto</option>
+                                                                    <option value="input_email">Campo de e-mail</option>
+                                                                    <option value="input_number">Númerico</option>
+                                                                    <option value="input_tags">Tags</option>
+                                                                    <option value="input_datepicker">Date Picker</option>
+                                                                    <option value="input_timepicker">Time Picker</option>
+                                                                    <option value="textarea">Área de texto</option>
+                                                                    <option value="input_url">URL </option>
+                                                                    <option value="input_urlselect">URL - Select </option>
+                                                                    <option value="input_checkbox">Checkbox</option>
+                                                                    <option value="input_file">Arquivo</option>
+                                                                </select>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" name="form_body[mask][{column}]" class="form-control" placeholder="" >
+                                                            </td>
+
+                                                        </tr>
+                                                        <!-- END block_form_body_row -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!-- Model: Validações -->
+                                    <h6>Model: Validações</h6>
+                                    <section>
+                                        <div class="dataTables_wrapper">
+                                            <div class="dataTables_grid">
+                                                <table id="model" class="tablesaw table-bordered table tablesaw-columntoggle tablesaw-sortable table-bordered table-striped" data-tablesaw-mode="columntoggle" data-tablesaw-sortable data-tablesaw-minimap >
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" data-tablesaw-priority="persist" style="cursor:pointer;">
+                                                                Campo
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist" >
+                                                                Req
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist" width="70">
+                                                                Fixo
+                                                            </th>
+                                                            <th scope="col" data-tablesaw-priority="persist" >
+                                                                Validação Regex
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- BEGIN block_model_validation_row -->
+                                                        <tr>
+                                                            <td class="title footable-even footable-detail-show">
+                                                                <strong>{column}</strong>
+                                                            </td>
+                                                            <td>
+                                                                <input type="checkbox" id="req_model_checkbox_{column_counter}" name="model_validation[required][{column}]" class="filled-in chk-col-light-blue checked_table_custom" value="1" checked="checked">
+                                                                <label for="req_model_checkbox_{column_counter}" data-toggle="tooltip" title="Selecionar"></label>
+                                                            </td>
+                                                            <td>
+                                                                <input type="checkbox" id="fix_model_checkbox_{column_counter}" name="model_validation[required][{column}]" class="filled-in chk-col-light-blue checked_table_custom" value="1" checked="checked">
+                                                                <label for="fix_model_checkbox_{column_counter}" data-toggle="tooltip" title="Selecionar"></label>
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" name="model_validation[regex][{column}]" class="form-control" placeholder="">
+                                                            </td>
+
+                                                        </tr>
+                                                        <!-- END block_model_validation_row -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!-- Variáveis Extras-->
+                                    <h6>Variaveis Extras</h6>
+                                    <section>
+                                        <div class="row p-t-20">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">ID Geral</label>
+                                                    <input type="text" name="controlller_variable[id_geral]" class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Nome Descritivo</label>
+                                                    <input type="text" name="controlller_variable[descritive_name]" class="form-control" value="{descritive_name}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Nome Descritivo Plural</label>
+                                                    <input type="text" name="controlller_variable[descritive_name_plural]" class="form-control" value="{descritive_name_plural}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!-- Menu -->
+                                    <h6>Menu</h6>
+                                    <section>
+                                        <div class="input-group">
+                                            <ul class="icheck-list">
+                                                <li>
+                                                    <input type="checkbox" class="filled-in chk-col-light-blue" name="has_menu" id="has_menu" checked="checked" value="1">
+                                                    <label for="has_menu" >&nbsp;&nbsp;&nbsp;&nbsp;Possui Menu?</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div data-checkbox-parent="has_menu">
+                                            <div class="row p-t-20">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Menu Pai</label>
+                                                        <select class="select2 form-control custom-select" id="menu_menu_id" name="menu[menu_id]" style="width: 100%; height:36px;" >
+                                                            <option value="" >Selecione</option>
+                                                            {form->selectmenuid}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Nome</label>
+                                                        <input type="text" name="menu[nome]" id="menu_nome" class="form-control" placeholder="Nome" maxlength="40">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Url</label>
+                                                        <input type="text" name="menu[url]" id="menu_url" class="form-control" placeholder="Url"  maxlength="400">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Icone</label>
+                                                        <input type="text" name="menu[icone]" id="menu_icone" class="form-control" placeholder="Icone">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ul class="icheck-list">
+                                                <li>
+                                                    <input type="checkbox" class="filled-in chk-col-light-blue" name="menu[verificarmodulo]" id="menu_verificarmodulo" checked="checked" value="1">
+                                                    <label for="menu_verificarmodulo" >&nbsp;&nbsp;&nbsp;&nbsp;Verificar Módulo</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </section>
+                                    <!-- Módulo Permissivo-->
+                                    <h6>Módulo Permissivo</h6>
+                                    <section>
+                                        <div class="input-group">
+                                            <ul class="icheck-list">
+                                                <li>
+                                                    <input type="checkbox" class="filled-in chk-col-light-blue" name="has_menu" id="has_modulo" checked="checked" value="1">
+                                                    <label for="has_modulo" >&nbsp;&nbsp;&nbsp;&nbsp;Possui Módulo Permissivo?</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div data-checkbox-parent="has_modulo">
+                                            <div class="row p-t-20">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Grupo Módulo</label>
+                                                        <select class="select2 form-control custom-select" id="modulo_grupomodulo_id" name="modulo[grupomodulo_id]" required="required" style="width: 100%; height:36px;" >
+                                                            <option value="" >Selecione</option>
+                                                            {form->selectgrupomodulo}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Nome</label>
+                                                        <input type="text" name="modulo[nome]" id="modulo_nome" class="form-control" placeholder="Nome" maxlength="40">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Descrição</label>
+                                                        <textarea class="form-control" name="modulo[descricao]" id="modulo_descricao" placeholder="12n" rows="5" ></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Menu</label>
+                                                        <select class="select2 form-control custom-select" id="modulo_menu_id" name="modulo[menu_id]" style="width: 100%; height:36px;" >
+                                                            <option value="" >Selecione</option>
+                                                            {form->selectmenu}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!-- Resumo-->
+                                    <h6>Resumo</h6>
+                                    <section>
+                                        <div class="row p-t-20"> 
+                                            <div class="col-md-12">
+                                                <b>Controller :</b>
+                                                &nbsp;&nbsp;&nbsp; 
+                                                <i class="fa fa-check" style="color: green;"></i>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <b>Model :</b>
+                                                &nbsp;&nbsp;&nbsp; 
+                                                <i class="fa fa-check" style="color: green;"></i>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <b>Grid :</b>
+                                                &nbsp;&nbsp;&nbsp; 
+                                                <i class="fa fa-check" data-checkbox-parent="has_grid" style="color: green;"></i>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <b>Form :</b>
+                                                &nbsp;&nbsp;&nbsp; 
+                                                <i class="fa fa-check" data-checkbox-parent="has_form" style="color: green;"></i>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <b>Módulo :</b>
+                                                &nbsp;&nbsp;&nbsp; 
+                                                <i class="fa fa-check" data-checkbox-parent="has_modulo" style="color: green;"></i>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <b>Menu :</b>
+                                                &nbsp;&nbsp;&nbsp; 
+                                                <i class="fa fa-check" data-checkbox-parent="has_menu" style="color: green;"></i>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </form>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Row -->
+
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Container fluid  -->
+<script>
+    {scripts}
+</script>

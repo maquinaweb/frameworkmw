@@ -1,0 +1,85 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        //NAO-ESPECIFICOS
+        $(".mascara.campo-cpfcnpj").each(function(){
+            $(this).inputmask({mask: ["999.999.999-99", "99.999.999/9999-99"],keepStatic: null, removeMaskOnSubmit:true});
+        });
+        $(".valida.campo-cpfcnpj").each(function(){
+           $(this).attr('pattern', '^(?:\\d{{_}3}\\.\\d{{_}3}\\.\\d{{_}3}-\\d{{_}2})|(?:\\d{{_}2}\\.\\d{{_}3}\\.\\d{{_}3}\\/\\d{{_}4}-\\d{{_}2})$');
+           $(this).attr('title', '000.000.000-00 ou 00.000.000/0000-00');
+        });
+        //Telefone
+        $(".mascara.campo-telefone").each(function(){
+            $(this).inputmask({mask: ["(99) 9999-9999", "(99) 99999-9999"],keepStatic: null, removeMaskOnSubmit:true});
+        });
+        $(".valida.campo-telefone").each(function(){
+           $(this).attr('pattern', '^\\(\\d{{_}2}\\) \\d{{_}4,5}-\\d{{_}4}$');
+           $(this).attr('title', '(00) 0000-0000 ou (00) 00000-0000');
+        });
+        //Data
+        $(".mascara.campo-data").each(function(){
+            $(this).inputmask("dd/mm/yyyy", {placeholder: "dd/mm/aaaa"});
+        });
+        $(".valida.campo-data").each(function(){
+            $(this).attr('pattern', '^(?:(?:31(\\/)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)\\d{{_}2})$|^(?:29(\\/)0?2\3(?:(?:(?:1[6-9]|[2-9]\\d)(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)\\d{{_}2})$');
+            $(this).attr('title', 'dd/mm/aaaa');
+        });
+        //CEP
+        $(".mascara.campo-cep").each(function(){
+            $(this).inputmask({mask: "99999-999",placeholder: "_", removeMaskOnSubmit:true});
+        });
+        $(".valida.campo-cep").each(function(){
+           $(this).attr('pattern', '^\\d{{_}5}-\\d{{_}3}$');
+           $(this).attr('title', '00000-000');
+        });
+        //Decimal5-2
+        $(".mascara.campo-decimal-52").each(function(){
+            $(this).inputmask({mask: ["9{1,5}.99"], placeholder: "0", clearMaskOnLostFocus: false, keepStatic: null});
+        });
+        $(".valida.campo-decimal-52").each(function(){
+            $(this).attr('pattern', '^\\d{{_}1,5}\\.\\d{{_}2}$');
+            $(this).attr('title', 'Número decimal de 5 digitos antes e 2 após o ponto.');
+        });
+        //Decimal7-2
+        $(".mascara.campo-decimal-72").each(function(){
+            $(this).inputmask({mask: ["9{{_}1,7}.99"], placeholder: "0", clearMaskOnLostFocus: false, keepStatic: null});
+        });
+        $(".valida.campo-decimal-72").each(function(){
+            $(this).attr('pattern', '^\\d{{_}1,7}\\.\\d\\d$');
+            $(this).attr('title', 'Número decimal de 7 digitos antes e 2 após o ponto.');
+        });
+        //Decimal2-3
+        $(".mascara.campo-decimal-23").each(function(){
+            $(this).inputmask({mask: ["9{1,2}.999", "9{1,2},999"], placeholder: "0", clearMaskOnLostFocus: false, keepStatic: null});
+        });
+        $(".valida.campo-decimal-23").each(function(){
+            $(this).attr('pattern', '^\\d{{_}1,2}(\\.|\\,)\\d{{_}3}$');
+            $(this).attr('title', 'Número decimal de 2 digitos com 3 após o ponto.');
+        });
+        //Cor
+        $(".mascara.campo-cor").each(function(){
+            $(this).inputmask("\\#HHHHHH", {
+                "placeholder": "#______",
+                definitions: {
+                    'H': {  //masksymbol
+                        "validator": "[0-9a-fA-F]",
+                        "cardinality": 1,
+                        'prevalidator': null
+                    }
+                }
+            });
+        })
+        $(".valida.campo-cor").each(function(){
+            $(this).attr('pattern', '^#(?:[0-9a-fA-F]{{_}3}){{_}1,2}$');
+            $(this).attr('title', '6 caractéres hexadecimais.');
+        });
+        //3 digitos
+        $(".mascara.campo-digito-3").each(function(){
+            $(this).inputmask("999", {"placeholder": "___"});
+        });
+        $(".valida.campo-digito-3").each(function(){
+            $(this).attr('pattern', '^\\d{{_}3}$');
+            $(this).attr('title', '3 digitos.');
+        });
+    });
+</script>

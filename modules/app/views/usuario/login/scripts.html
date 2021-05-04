@@ -1,0 +1,56 @@
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="{plugins}jquery/jquery.min.js"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="{plugins}bootstrap/js/popper.min.js"></script>
+<script src="{plugins}bootstrap/js/bootstrap.min.js"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="{plugins}main/js/jquery.slimscroll.js"></script>
+<!--Wave Effects -->
+<script src="{plugins}main/js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="{plugins}main/js/sidebarmenu.js"></script>
+<!--stickey kit -->
+<script src="{plugins}sticky-kit-master/dist/sticky-kit.min.js"></script>
+<script src="{plugins}sparkline/jquery.sparkline.min.js"></script>
+<!--Custom JavaScript -->
+<script src="{plugins}main/js/custom.min.js"></script>
+<!-- ============================================================== -->
+<!-- Style switcher -->
+<!-- ============================================================== -->
+<script src="{plugins}styleswitcher/jQuery.style.switcher.js"></script>
+<script>
+    function facebookLogin() {
+    FB.login(function(response) {
+            console.log(response);
+        }, {scope: 'public_profile,email', auth_type: 'rerequest'});
+    }
+    
+    $('a.btn-googleplus').on('click', function () {
+        var url_google_auth = "{auth_domain}app/usuario/googleauthrequisition?site={site->id}";
+        document.location = url_google_auth;
+    });
+    
+     <!-- BEGIN block_alert -->
+        var alertHtml = 
+            '<div class="card-body">' +
+                '<div class="alert alert-{tipoalerta} timed-alert">' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                        '<span aria-hidden="true">×</span>' +
+                    '</button>' +
+                    '<h3 class="text-{tipoalerta}">' +
+                        '<i class="icon {icone}"></i> {tituloalerta}' +
+                    '</h3>' +
+                    '{mensagemalerta}' +
+                '</div>' +
+            '</div>';
+        $("#wrapper").find('.card-body:first').prepend(alertHtml);
+
+    <!-- END block_alert -->
+    
+    $(".alert.timed-alert").delay(4000).slideUp(200, function() {
+            $(this).alert('close');
+        });
+    
+</script>

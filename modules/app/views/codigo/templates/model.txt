@@ -1,0 +1,50 @@
+<?php namespace {module};
+
+class {table} extends \mwwork\mwmodel {
+
+    static $table_name = '{module}_{table}';
+    
+    static $validates_presence_of = array(
+<!-- BEGIN block_required_validation -->
+        array('{column}', 'message' => '{column|ucfirst} é um campo obrigatório!'){is_last_required_column|siif:1::,}
+<!-- END block_required_validation -->
+    );
+
+    static $validates_format_of = array(
+<!-- BEGIN block_regex_validation -->
+        array('{column}', 'with' => '{column_regex}', 'message' => '{column|ucfirst} se encontra em formato incorreto!'){is_last_regex_column|siif:1::,}
+<!-- END block_regex_validation -->
+    );
+
+    public function post($ignore = array()) {
+<!-- BEGIN block_default_post -->
+        parent::post($ignore);
+<!-- END block_default_post -->
+<!-- BEGIN block_advanced_post -->
+        if($this->is_new_record()) {
+            parent::post(array_merge($ignore, array({identifier|eiif::'}{identifier|eiif::__this}{identifier|eiif::'})));
+<!-- BEGIN block_identifier_post -->
+            $this->{identifier} = $_SESSION['app']['{identifier}'];
+<!-- END block_identifier_post -->
+        }
+        else {
+            parent::post(array_merge($ignore, array({fixed_values})));
+        }
+<!-- END block_advanced_post -->
+    }
+    
+    public function has_access($server_vars = array()) {
+<!-- BEGIN block_default_access -->
+        return true;
+<!-- END block_default_access -->
+<!-- BEGIN block_identifier_access -->
+        return ($this->{identifier} == $server_vars['app']['{identifier}']);
+<!-- END block_identifier_access -->
+    }
+
+    static function filter($requisition_vars = array(), $server_vars = array()) {
+        return parent::filter($requisition_vars, $server_vars);
+    }
+}
+
+?>

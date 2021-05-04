@@ -1,0 +1,49 @@
+<div class="modal fade" tabindex="-1" id="advancedSearch" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form method="get" class="form-ajax form-get show-alert" data-target="#content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Busca Avançada</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">User Name</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label>Input Select</label>
+                                <select class="custom-select col-12" id="inlineFormCustomSelect">
+                                    <option selected="">Choose...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>                
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer" style="display: block;">
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-danger" data-toggle="tooltip" title="Cancelar" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancelar</button>
+                        <div class="pull-right">
+                            <button type="reset" class="btn btn-secondary" data-toggle="tooltip" title="Limpar"><i class=" ti-eraser"></i>&nbsp;&nbsp;Limpar</button>
+                            <button type="submit" class="btn btn-success " data-toggle="tooltip" title="Buscar"><i class=" fas fa-search"></i>&nbsp;&nbsp;Buscar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

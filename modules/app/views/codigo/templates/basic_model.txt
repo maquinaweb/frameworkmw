@@ -1,0 +1,8 @@
+<?php namespace {module};
+class {table} extends  \mwwork\mwmodel
+{
+ 
+    static $table_name = '{module}_{table}';
+ 
+}
+?>

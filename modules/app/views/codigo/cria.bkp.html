@@ -1,0 +1,386 @@
+<div class="modal fade" tabindex="-1" id="modalbuscaavancada" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <form>
+      <div class="modal-header">
+      	<h4 class="modal-title">Busca Avançada</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        
+      </div>
+      <div class="modal-body">
+
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">User Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Username">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label>Input Select</label>
+                    <select class="custom-select col-12" id="inlineFormCustomSelect">
+                        <option selected="">Choose...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>                
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success " data-toggle="tooltip" title="Buscar"><i class=" fas fa-search"></i>&nbsp;&nbsp;Buscar</button>
+       <button type="button" class="btn btn-danger" data-toggle="tooltip" title="Cancelar" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancelar</button>
+      </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="container-fluid" style="padding:0px;">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== --> 
+    <div class="row">
+        <div class="col-12">
+            <!-- Column -->
+            <div class="card">
+                <div class="card-body">
+                	
+                    <div class="dataTables_wrapper">
+                    	<div class="row">
+                            <div class="dt-buttons col-sm-3 col-md-3 col-lg-3">
+                                <div id="td_selected" role="group" style="display:none; position:relative;">
+                                    <a role="button" class="btn btn-danger" tabindex="0" data-toggle="tooltip" title="Excluir"><i class="ti-trash"></i></a>
+                                    <span data-toggle="tooltip" title="Exportar"  style="display:inline-block;">
+                                        <button type="button" class="btn btn-info dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-download"></i></button>
+                                        <div class="dropdown-menu bounce"  style="position: absolute; transform: translate3d(0px, -2px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                          
+                                            <a class="dropdown-item" href="#"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;Exportar para PDF</a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-file-excel-o"></i>&nbsp;&nbsp;Exportar para Excel</a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-file-word-o"></i>&nbsp;&nbsp;Exportar para Word</a>
+                                        </div>
+                                    </span>
+                                    <a class="btn btn-info" tabindex="0" aria-controls="example23" href="#" data-toggle="tooltip" title="Imprimir"><i class="fa fa-print"></i></a>
+                                    <div class="dataTables_length"><label style="margin-bottom:0px; font-size:12px;"><span id="qtditemselecionado"></span> item(s) selecionado(s) de <span id="qtdtotalitem"></span></label></div>
+                                </div>
+                                <div id="td_nselected" role="group" style="position:relative;">
+                                    <a class="btn btn-info" tabindex="0" aria-controls="example23" href="#" data-toggle="tooltip" title="Adicionar novo"><i class="fa fa-plus"></i></a>
+                                    <span data-toggle="tooltip" title="Exportar"  style="display:inline-block;">
+                                        <button type="button" class="btn btn-info dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-download"></i></button>
+                                        <div class="dropdown-menu bounce"  style="position: absolute; transform: translate3d(0px, -2px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                          
+                                            <a class="dropdown-item" href="#"><i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;Exportar para PDF</a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-file-excel-o"></i>&nbsp;&nbsp;Exportar para Excel</a>
+                                            <a class="dropdown-item" href="#"><i class="fa fa-file-word-o"></i>&nbsp;&nbsp;Exportar para Word</a>
+                                        </div>
+                                    </span>
+                                    <a class="btn btn-info" tabindex="0" aria-controls="example23" href="#" data-toggle="tooltip" title="Imprimir"><i class="fa fa-print"></i></a>
+                                    <div class="dataTables_length"><label style="margin-bottom:0px; font-size:12px;"><select name="myTable_length" aria-controls="myTable" class=""><option value="20">20</option><option value="50">50</option><option value="100">100</option></select> itens por página</label></div>
+                                </div>
+                            </div>
+                            <div class="dataTables_filter col-sm-9 col-md-9 col-lg-9">
+                                <form method="post">
+                                <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Pesquisar por ..." aria-label="Pesquisar por..." style="width: 300px; max-width: 100%;">
+                                  <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-info" data-toggle="tooltip" title="Buscar"><i class=" fas fa-search"></i></button>
+                                     
+                                    <button type="button" class="btn btn-info" id="btn_busca_avancada" data-toggle="modal" data-target="#modalbuscaavancada"><span data-toggle="tooltip" title="Busca Avançada"><i class="ti-zoom-in"></i></span></button>
+                                    
+                                  </span>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                        <table class="tablesaw table-bordered table tablesaw-columntoggle tablesaw-sortable table-bordered table-striped" data-tablesaw-mode="columntoggle" data-tablesaw-sortable data-tablesaw-minimap>
+                            <thead>
+                                <tr>
+                                    <th scope="col" data-tablesaw-priority="persist" width="30">
+                                    <input type="checkbox" id="md_checkbox_36" class="filled-in chk-col-light-blue checked_table_p" value="1">
+                                    <label for="md_checkbox_36" data-toggle="tooltip" title="Selecionar" ></label>
+                                    </th>
+                                    <th scope="col" data-tablesaw-priority="persist" style="cursor:pointer;">Tabela<i class="sortable-td-desc"></i></th>
+                                    <th scope="col" data-tablesaw-priority="2">MVC</th>
+                                    <th scope="col" data-tablesaw-priority="1">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- BEGIN linha -->
+                                <tr>
+                                	<td>
+                                    <input type="checkbox" id="md_checkbox_{table}" class="filled-in chk-col-light-blue checked_table" value="1">
+                                    <label for="md_checkbox_{table}"></label>
+                                    </td>
+                                    <td class="title footable-even footable-detail-show"><a href="{url}/cadastro/grid/{table}"><strong>{table}</strong></a></td>
+                                    <td>
+                                        <i class="icon fa fa-{model|siif:1:check text-green:close text-red}"></i>
+                                        <i class="icon fa fa-{view|siif:1:check text-green:close text-red}"></i>
+                                        <i class="icon fa fa-{controller|siif:1:check text-green:close text-red}"></i>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <span data-toggle="tooltip" title="Ações"  style="display:inline-block;"><button type="button" class="btn btn-info dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-cog"></i>
+                                              
+                                            </button>
+                                            <div class="dropdown-menu bounce"  style="position: absolute; transform: translate3d(0px, -2px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                <a class="dropdown-item" href="#"><i class=" fas fa-edit"></i>&nbsp;&nbsp;Editar</a>
+                                                <a class="dropdown-item" href="#"><i class="ti-trash"></i>&nbsp;&nbsp;Excluir</a>
+                                            </div>
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- END linha --> 
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info" id="example23_info" role="status" aria-live="polite" style="font-size:12px;">Listando 1 á 10 de 57 registros</div>
+                        <div class="dataTables_paginate paging_simple_numbers" id="example23_paginate"><a class="paginate_button previous disabled" aria-controls="example23" data-dt-idx="0" tabindex="0" id="example23_previous">Previous</a><span><a class="paginate_button current" aria-controls="example23" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="example23" data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="example23" data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="example23" data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="example23" data-dt-idx="5" tabindex="0">5</a><a class="paginate_button " aria-controls="example23" data-dt-idx="6" tabindex="0">6</a></span><a class="paginate_button next" aria-controls="example23" data-dt-idx="7" tabindex="0" id="example23_next">Next</a></div>
+                  	</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+<!--    <div class="right-sidebar">
+        <div class="slimscrollright">
+            <div class="rpanel-title"> Service Panel <span><i class="fas fa-times right-side-toggle"></i></span> </div>
+            <div class="r-panel-body">
+                <ul id="themecolors" class="m-t-20">
+                    <li><b>With Light sidebar</b></li>
+                    <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
+                    <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
+                    <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
+                    <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
+                    <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
+                    <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
+                    <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
+                    <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
+                    <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
+                    <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
+                    <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
+                    <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
+                    <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
+                </ul>
+                <ul class="m-t-20 chatonline">
+                    <li><b>Chat option</b></li>
+                    <li>
+                        <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>-->
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+</div>
+
+<div class="card">
+    <!-- /.box-header -->
+    <div class="card-body">
+        <form method="get">
+            <div class="row">
+                <div class="col-md-6 margin-bottom">
+                    <select class="form-control" id="module" name="module" >
+                        <option value="" >Selecione</option>
+                        {selectmodules}
+                    </select>
+                </div>
+                <!-- /.col-lg-6 -->
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Pesquisar por..." name="filter" value="{filter}">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </span>
+                    </div>
+                    <!-- /input-group -->
+                </div>
+            </div>
+        </form>
+        <table id="grid2" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Tabela</th>
+                    <th>MVC</th>
+                    <th>Módulo</th>
+                    <th>Menu</th>
+                    <th class="col-md-2">Ações<i></i></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td><a href="{url}/cadastro/grid/{table}">{table}</a></td>
+                    <td>
+                        <i class="icon fa fa-{model|siif:1:check text-green:close text-red}"></i>
+                        <i class="icon fa fa-{view|siif:1:check text-green:close text-red}"></i>
+                        <i class="icon fa fa-{controller|siif:1:check text-green:close text-red}"></i>
+                    </td>
+                    <td>
+                        <!-- BEGIN bmodulocria -->
+                        <a href="{url}/cadastro/form/modulo/ajax?nome=cadastro/{table}" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-mini btn-info"><i class="fa fa-plus"></i> Criar </a>
+                        <!-- END bmodulocria -->
+                        <!-- BEGIN bmodulotem -->
+                        <i class="icon fa fa-{modulo} text-{modulocor}"></i>
+                        <!-- END bmodulotem -->
+                    </td>
+                    <td>
+                        <!-- BEGIN bmenucria -->
+                        <a href="{url}/cadastro/form/menu/ajax?table={table}" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-mini btn-info"><i class="fa fa-plus"></i> Criar </a>
+                        <!-- END bmenucria -->
+                        <!-- BEGIN bmenutem -->
+                        <i class="icon fa fa-check text-green"></i>
+                        <!-- END bmenutem -->
+                    </td>
+                    <td>
+
+                        <a href="{url}/app/codigo/gerador/{table}" class="btn btn-mini btn-success"><i class="fa fa-plus"></i></a>
+                        <a href="{url}/app/codigo/edit/{table}" class="btn btn-mini btn-success"><i class="fa fa-edit"></i></a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+<!-- /.box -->
+{script}
+<script>
+ window.onload = function() {
+	 
+$('.checked_table_p').change(function(){
+  if(!this.checked){
+	$('.checked_table').prop('checked', false);
+    $('.checked_table').removeAttr('checked');
+	$('#td_selected').css('display', 'none');
+	$('#td_nselected').css('display', 'inline-block');
+  }else{
+	$('.checked_table').prop('checked', true);
+	$('#td_selected').css('display', 'inline-block');
+	$('#td_nselected').css('display', 'none');
+	$('#qtditemselecionado').html($("input.checked_table[type=checkbox]:checked").length);
+	$('#qtdtotalitem').html($("input.checked_table[type=checkbox]").length);
+  }
+});
+
+$('.checked_table').change(function(){
+  if($('table').find("input.checked_table[type=checkbox]:checked").length == 0){
+	$('#td_selected').css('display', 'none');
+	$('#td_nselected').css('display', 'inline-block');
+	$('.checked_table_p').prop('checked', false);
+  }else{
+	$('#td_selected').css('display', 'inline-block');
+	$('#td_nselected').css('display', 'none');
+	$('#qtditemselecionado').html($("input.checked_table[type=checkbox]:checked").length);
+	$('#qtdtotalitem').html($("input.checked_table[type=checkbox]").length);
+  }
+});
+}
+
+</script>
+ <div class="card">
+            <!-- /.box-header -->
+            <div class="card-body">
+                <form method="get">
+                    <div class="row">
+                        <div class="col-md-6 margin-bottom">
+                            <select class="form-control" id="module" name="module" >
+                                <option value="" >Selecione</option>
+                                {selectmodules}
+                            </select>
+                        </div>
+                        <!-- /.col-lg-6 -->
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Pesquisar por..." name="filter" value="{filter}">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </div>
+                    </div>
+                </form>
+                <table id="grid2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tabela</th>
+                            <th>MVC</th>
+                            <th>Módulo</th>
+                            <th>Menu</th>
+                            <th class="col-md-2">Ações<i></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td><a href="{url}/cadastro/grid/{table}">{table}</a></td>
+                            <td>
+                                <i class="icon fa fa-{model|siif:1:check text-green:close text-red}"></i>
+                                <i class="icon fa fa-{view|siif:1:check text-green:close text-red}"></i>
+                                <i class="icon fa fa-{controller|siif:1:check text-green:close text-red}"></i>
+                            </td>
+                            <td>
+                                <!-- BEGIN bmodulocria -->
+                                <a href="{url}/cadastro/form/modulo/ajax?nome=cadastro/{table}" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-mini btn-info"><i class="fa fa-plus"></i> Criar </a>
+                                <!-- END bmodulocria -->
+                                <!-- BEGIN bmodulotem -->
+                                <i class="icon fa fa-{modulo} text-{modulocor}"></i>
+                                <!-- END bmodulotem -->
+                            </td>
+                            <td>
+                                <!-- BEGIN bmenucria -->
+                                <a href="{url}/cadastro/form/menu/ajax?table={table}" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-mini btn-info"><i class="fa fa-plus"></i> Criar </a>
+                                <!-- END bmenucria -->
+                                <!-- BEGIN bmenutem -->
+                                <i class="icon fa fa-check text-green"></i>
+                                <!-- END bmenutem -->
+                            </td>
+                            <td>
+
+                                <a href="{url}/app/codigo/gerador/{table}" class="btn btn-mini btn-success"><i class="fa fa-plus"></i></a>
+                                <a href="{url}/app/codigo/edit/{table}" class="btn btn-mini btn-success"><i class="fa fa-edit"></i></a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>

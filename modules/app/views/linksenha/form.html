@@ -1,0 +1,49 @@
+<div class="box-header with-border">
+    <h3 class="box-title">Cadastro de Linksenha</h3>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+    <!-- /.box-header -->
+<form class="form-horizontal" action="{action}" name="form1" method="post" >
+    <div class="box-body">
+        <div class="form-group">
+            <label for="id" class="col-sm-2 control-label">Id</label>
+            <div class="col-sm-10">
+                {form->id}
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="hash" class="col-sm-2 control-label">Hash</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="hash" name="hash" value="{form->hash}" placeholder="Hash" >
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="ativo" class="col-sm-2 control-label">Ativo</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="ativo" name="ativo" value="{form->ativo}" placeholder="Ativo" >
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="expiracao" class="col-sm-2 control-label">Expiracao</label>
+            <div class="col-sm-10">
+                <input type="text" class="datepicker" id="expiracao" name="expiracao" value="{form->expiracao}" placeholder="dd/mm/aaaa" >
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="usuario_id" class="col-sm-2 control-label">Usuario Id</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="usuario_id" name="usuario_id" >
+                    <option value="" >Selecione</option>
+                    
+                </select>
+                </div>
+        </div>
+        </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-remove"></i> Cancelar</button>
+        <button type="submit" class="btn btn-success pull-right" value="save" name="acao"> <i class="fa fa-save"> </i> Salvar </button>
+    </div>
+    <!-- /.box-footer -->
+</form>
+{script}

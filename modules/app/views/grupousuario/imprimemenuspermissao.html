@@ -1,0 +1,15 @@
+<!-- BEGIN menupai -->
+<ul>
+    <!-- BEGIN menus -->
+    <li style=" list-style: none;"><input name="menu{menu->id}" value="{menu->id}" type="checkbox" {checkedpermissao} /> {menu->nome} 
+       <!-- BEGIN per -->
+        <input name="menu_ver{menu->id}" value="{menu->id}" type="checkbox" {checkedpermissaover} class="sussa" data-size="mini" data-on-text="Sim" data-on-color="success" data-off-text="Não" data-off-color="danger" data-label-text="Visualizar"/>
+        <input name="menu_insert{menu->id}" value="{menu->id}" type="checkbox" {checkedpermissaoinsert} class="sussa" data-size="mini" data-on-text="Sim" data-on-color="success" data-off-text="Não" data-off-color="danger" data-label-text="Incluir"/>
+        <input name="menu_update{menu->id}" value="{menu->id}" type="checkbox" {checkedpermissaoupdate} class="sussa" data-size="mini" data-on-text="Sim" data-on-color="success" data-off-text="Não" data-off-color="danger" data-label-text="Atualizar"/>
+        <input name="menu_delete{menu->id}" value="{menu->id}" type="checkbox" {checkedpermissaodelete} class="sussa" data-size="mini" data-on-text="Sim" data-on-color="success" data-off-text="Não" data-off-color="danger" data-label-text="Excluir"/>
+        <!-- END per -->
+        {menufilho}
+    </li>
+    <!-- END menus -->
+</ul>
+<!-- END menupai -->

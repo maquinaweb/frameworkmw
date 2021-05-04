@@ -1,0 +1,50 @@
+<style>
+    .bootstrap-tagsinput{ display:block; padding:7px 6px;}
+</style>
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Start Page Content -->
+    <!-- ============================================================== -->
+    <!-- Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-outline-info">
+                <div class="card-body"> 
+                    <div class="form-body">
+                        <form action="{url}/{module}/{controller}/save/{form->id|eiif:new:__this}/ajax{query|eiif::?}{query}" class="form-ajax form-post show-alert" name="form1" method="post" novalidate>
+                            <div class="row p-t-20">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Nome<span class="text-danger">*</span></label>
+                                        <div class="controls">
+                                            <input name="nome" type="text" class="form-control validform" required data-validation-required-message="Este campo é obrigatório" value="{form->nome}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Descrição</label>
+                                        <textarea class="form-control" name="descricao" placeholder="Descrição">{form->descricao}</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-actions">
+                                        <a href="{url_cancel}" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Voltar</a>
+                                        <div class="pull-right">
+                                            <button type="submit" class="btn btn-success" value="apply" name="acao" style="display: {form->id|eiif:none:}"> <i class="fa fa-check"> </i> Aplicar </button>
+                                            &nbsp;
+                                            <button type="submit" class="btn btn-info pull-right" value="save" name="acao"> <i class="fa fa-save"> </i> Salvar </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    {scripts}
+</script>

@@ -1,0 +1,84 @@
+{{_}advancedsearch}
+{{_}exportoptions}
+<div class="container-fluid" style="padding:0px;">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="dataTables_wrapper">
+                        {{_}actions}
+                        <div class="dataTables_grid">
+                            <table id="grid" class="tablesaw table-bordered table tablesaw-columntoggle tablesaw-sortable table-bordered table-striped" data-tablesaw-mode="columntoggle" data-tablesaw-sortable data-tablesaw-minimap>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" data-tablesaw-priority="persist" width="30">
+                                            <input type="checkbox" id="md_checkbox_36" class="filled-in chk-col-light-blue checked_table_p" value="1">
+                                            <label for="md_checkbox_36" data-toggle="tooltip" title="Selecionar todos" ></label>
+                                        </th>
+<!-- BEGIN block_grid_header -->
+                                        <th scope="col" data-tablesaw-priority="{grid_priority}" style="cursor:pointer;">
+                                            <a href="{{_}url}/{{_}module}/{{_}controller}/grid{{_}query|eiif::?}{{_}query_json|json_decode:true|unset_many:order|http_build_query}{{_}query|eiif:?:&}order={{_}url|fsort:{column}:{column}-asc:}" target="#content" class="ajax show-alert">
+                                                {label}<i class="sortable-td{{_}url|fsort:{column}::1}"></i>
+                                            </a>
+                                        </th>
+<!-- END block_grid_header -->
+                                        <th scope="col" data-tablesaw-priority="persist" width="50">
+                                            Ações
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <{_}!-- BEGIN block_row -->
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="md_checkbox_{{_}grid->id}" class="filled-in chk-col-light-blue checked_table" value="{{_}grid->id}">
+                                        <label for="md_checkbox_{{_}grid->id}" data-toggle="tooltip" title="Selecionar"></label>
+                                        </td>
+<!-- BEGIN block_grid_row_primary -->
+                                        <td class="title footable-even footable-detail-show">
+                                            <{_}!-- BEGIN block_permission_update_2 -->
+                                            <a class="dropdown-item ajax show-alert" href="{{_}url}/{{_}module}/{{_}controller}/form/{{_}grid->id}{{_}query|eiif::?}{{_}query}" data-location="/{{_}module}/{{_}controller}/form/{{_}grid->id}{{_}query|eiif::?}{{_}query}" target="#content" >
+                                                <strong>{{_}grid->{column}}</strong>
+                                            </a>
+                                            <{_}!-- END block_permission_update_2 -->
+                                        </td>
+<!-- END block_grid_row_primary -->
+<!-- BEGIN block_grid_row -->
+                                        <td>
+                                            {{_}grid->{column}}
+                                        </td>
+<!-- END block_grid_row -->
+                                        <td>
+                                            <div class="btn-group">
+                                                <span data-toggle="tooltip" title="Ações"  style="display:inline-block;">
+                                                    <button type="button" class="btn btn-info dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-cog"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu bounce"  style="position: absolute; transform: translate3d(0px, -2px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                        <{_}!-- BEGIN block_permission_update_1 -->
+                                                        <a class="dropdown-item ajax show-alert" href="{{_}url}/{{_}module}/{{_}controller}/form/{{_}grid->id}{{_}query|eiif::?}{{_}query}" data-location="/{{_}module}/{{_}controller}/form/{{_}grid->id}{{_}query|eiif::?}{{_}query}" target="#content" >
+                                                            <i class="fas fa-edit"></i>&nbsp;&nbsp;Editar
+                                                        </a>
+                                                        <{_}!-- END block_permission_update_1 -->
+                                                        <{_}!-- BEGIN block_permission_delete_1 -->
+                                                        <a class="dropdown-item delete-ajax show-alert" href="javascript:void(0)" data-href="{{_}url}/{{_}module}/{{_}controller}/delete/{{_}grid->id}{{_}query|eiif::?}{{_}query}"><i class="fas fa-trash "></i>&nbsp;&nbsp;Excluir</a>
+                                                        <{_}!-- END block_permission_delete_1 -->
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <{_}!-- END block_row --> 
+                                </tbody>
+                            </table>
+                        </div>
+                        {{_}pagination}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+{{_}scripts}
+</script>

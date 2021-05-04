@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="dt-buttons col-sm-3 col-md-3 col-lg-3">
+        <div id="td_selected" role="group" style="display:none; position:relative;">
+            <!-- BEGIN block_permissao_delete_1 -->
+            <a role="button" class="btn btn-danger deletemultiple-ajax show-alert" data-href="{url}/{module}/{controller}/deletemultiple{query|eiif::?}{query}" tabindex="0" data-toggle="tooltip" title="Excluir">
+                <i class="ti-trash"></i>
+            </a>
+            <!-- END block_permissao_delete_1 -->
+            <span data-toggle="tooltip" title="Exportar"  style="display:inline-block;">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="ti-download"></i>
+                </button>
+                <div class="dropdown-menu bounce"  style="position: absolute; transform: translate3d(0px, -2px, 0px); top: 0px; left: 0px; will-change: transform;">
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;Exportar para PDF
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-file-excel-o"></i>&nbsp;&nbsp;Exportar para Excel
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-file-word-o"></i>&nbsp;&nbsp;Exportar para Word
+                    </a>
+                </div>
+            </span>
+            <a class="btn btn-info" tabindex="0" aria-controls="example23" href="#" data-toggle="tooltip" title="Imprimir">
+                <i class="fa fa-print"></i>
+            </a>
+            <div class="dataTables_length">
+                <label style="margin-bottom:0px; font-size:12px;">
+                    <span id="qtditemselecionado"></span> item(s) selecionado(s) de <span id="qtdtotalitem"></span>
+                </label>
+            </div>
+        </div>
+        <div id="td_nselected" role="group" style="position:relative;">
+            <!-- BEGIN block_permissao_create_1 -->
+            <a href="{url}/{module}/{controller}/form/new{query|eiif::?}{query}" target="#content" class="ajax show-alert btn btn-info" tabindex="0" aria-controls="example23" data-toggle="tooltip" title="Adicionar novo">
+                <i class="fa fa-plus"></i>
+            </a>
+            <!-- END block_permissao_create_1 -->
+            <span data-toggle="tooltip" title="Exportar"  style="display:inline-block;">
+                <button type="button" class="btn btn-info dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="ti-download"></i>
+                </button>
+                <div class="dropdown-menu bounce"  style="position: absolute; transform: translate3d(0px, -2px, 0px); top: 0px; left: 0px; will-change: transform;">
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-file-pdf-o"></i>&nbsp;&nbsp;Exportar para PDF
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-file-excel-o"></i>&nbsp;&nbsp;Exportar para Excel
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-file-word-o"></i>&nbsp;&nbsp;Exportar para Word
+                    </a>
+                </div>
+            </span>
+            <a class="btn btn-info" tabindex="0" aria-controls="example23" href="#" data-toggle="tooltip" title="Imprimir">
+                <i class="fa fa-print"></i>
+            </a>
+            <div class="dataTables_length">
+                <label style="margin-bottom:0px; font-size:12px;">
+                    <select aria-controls="myTable" name="limit" class="select-ajax show-alert" data-target="#content">
+                        <!-- BEGIN block_select_limits -->
+                        <option data-href="{url}/{module}/{controller}/grid{query|eiif::?}{query_json|json_decode:true|unset_many:limit|http_build_query}{query|eiif:?:&}limit={limit_value}" value="{limit_value}" {is_selected|siif:1:selected:}>{limit_value}</option>
+                        <!-- END block_select_limits -->
+                    </select> itens por página
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="dataTables_filter col-sm-9 col-md-9 col-lg-9">
+        <form method="get" class="form-ajax form-get show-alert" data-target="#content">
+            <div class="input-group">
+                <input type="text" name="filter" class="form-control" placeholder="Pesquisar por ..." aria-label="Pesquisar por..." value="{filter}"style="width: 300px; max-width: 100%;">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-info" data-toggle="tooltip" title="Buscar">
+                        <i class=" fas fa-search"></i>
+                    </button>
+                    <!-- BEGIN block_advanced_search -->
+                    <button type="button" class="btn btn-info" id="btnAdvancedSearch" data-toggle="modal" data-target="#advancedSearch"  data-backdrop="static" data-keyboard="false">
+                        <span data-toggle="tooltip" title="Busca Avançada">
+                            <i class="ti-zoom-in"></i>
+                        </span>
+                    </button>
+                    <!-- END block_advanced_search -->
+                </span>
+            </div>
+        </form>
+    </div>
+</div>

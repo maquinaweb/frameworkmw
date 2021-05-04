@@ -1,0 +1,178 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-outline-info">
+                <div class="card-body"> 
+                    <div class="form-body">
+                        <form action="{{_}url}/{{_}module}/{{_}controller}/save/{{_}form->id|eiif:new:__this}/ajax{{_}query|eiif::?}{{_}query}" class="form-ajax form-post show-alert" name="form1" method="post" novalidate {has_file|siif:1:enctype="multipart/form-data":}>
+                            <div class="row p-t-20">
+<!-- BEGIN block_form_row -->
+<!-- BEGIN block_form_field_input_text -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <div class="controls">
+                                            <input name="{column}" id="{column}" type="text" class="form-control validform" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":} {mask|eiif::data-mask="}{mask}{mask|eiif::"} value="{{_}form->{column}}" placeholder="{label}">
+                                        </div>
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_text -->
+<!-- BEGIN block_form_field_input_email -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <div class="controls">
+                                            <input  name="{column}" id="{column}" type="email" class="form-control validform" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":} {mask|eiif::data-mask="}{mask}{mask|eiif::"} value="{{_}form->{column}}" placeholder="{label}">
+                                        </div>
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_email -->
+<!-- BEGIN block_form_field_input_number -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <input  name="{column}" id="{column}" type="text" class="vertical-spin validform" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":} {mask|eiif::data-mask="}{mask}{mask|eiif::"} data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" value="{{_}form->{column}}" placeholder="{label}">
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_number -->
+<!-- BEGIN block_form_field_input_tags -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <div class="tags-default" >
+                                            <input  name="{column}" id="{column}" type="text" class="validform" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":} {mask|eiif::data-mask="}{mask}{mask|eiif::"} data-role="tagsinput" value="{{_}form->{column}}" placeholder="{label}">
+                                        </div>
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_tags -->
+<!-- BEGIN block_form_field_input_datepicker -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <input name="{column}" id="{column}" type="text" class="form-control mydatepicker validform" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":} {mask|eiif::data-mask="}{mask}{mask|eiif::"} value="{{_}form->{column}}" placeholder="{label}">
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_datepicker -->
+<!-- BEGIN block_form_field_input_timepicker -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <input name="{column}" id="{column}" type="text" class="form-control clockpicker validform" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":} data-autoclose="true" {mask|eiif::data-mask="}{mask}{mask|eiif::"} value="{{_}form->{column}}" placeholder="{label}">
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_timepicker -->
+<!-- BEGIN block_form_field_input_colorpicker -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <input name="{column}" id="{column}" type="text" class="form-control complex-colorpicker validform" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":} data-autoclose="true" {mask|eiif::data-mask="}{mask}{mask|eiif::"} value="{{_}form->{column}}" placeholder="{label}">
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_colorpicker -->
+<!-- BEGIN block_form_field_input_select -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <select class="select2 form-control custom-select validform" name="{column}" id="{column}" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":} style="width: 100%; height:36px;" >
+
+                                        </select>
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_select -->
+<!-- BEGIN block_form_field_textarea -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <textarea name="{column}" id="{column}" class="form-control validform" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":} {mask|eiif::data-mask="}{mask}{mask|eiif::"} placeholder="{label}" rows="5" >{{_}form->{column}}</textarea>
+                                    </div>
+                                </div>
+<!-- END block_form_field_textarea -->
+<!-- BEGIN block_form_field_input_url -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <div class="controls">
+                                            <input name="{column}" id="{column}" type="text" class="form-control validform" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":} data-validation-regex-regex="((http[s]?|ftp[s]?):\/\/)?([\da-z\.-]+)\.([a-z\.]{{_}2,6})([\/\w \.-]*)*" data-validation-regex-message="Apenas URLs válidos!" {mask|eiif::data-mask="}{mask}{mask|eiif::"} value="{{_}form->{column}}" placeholder="{label}">
+                                        </div>
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_url -->
+<!-- BEGIN block_form_field_input_urlselect -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <div class="controls">
+                                            <div class="input-group">
+                                                <select class="input-group-addon input-merge-url" data-input-target="#{column}">
+                                                    <option value="http://">http://</option>
+                                                    <option value="https://">https://</option>
+                                                    <option value="ftp://">ftp://</option>
+                                                    <option value="ftps://">ftps://</option>
+                                                </select>
+                                                <input type="text" data-input-target="#{column}" class="form-control validform input-merge-url" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":} data-validation-regex-regex="([\da-z\.-]+)\.([a-z\.]{{_}2,6})([\/\w \.-]*)*" data-validation-regex-message="Apenas URLs válidos!" {mask|eiif::data-mask="}{mask}{mask|eiif::"} placeholder="{label}">
+                                                <input type="hidden" name="{column}" id="{column}" value="{{_}form->{column}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_urlselect -->
+<!-- BEGIN block_form_field_input_checkbox -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <div class="input-group">
+                                            <ul class="icheck-list">
+                                                <li>
+                                                    <input type="checkbox" class=" filled-in chk-col-light-blue" class="validform" name="{column}" id="{column}" value="1" {{_}form->{column}|siif:1:checked:}>
+                                                    <label for="{column}">&nbsp;&nbsp;&nbsp;&nbsp;{label}</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_checkbox -->
+<!-- BEGIN block_form_field_input_file -->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <input type="file" name="{column}" id="{column}" class="dropify" data-height="200" data-default-file="{{_}form->{column}}" />
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_file -->
+<!-- BEGIN block_form_field_input_icon -->
+                                <div class="col-md-12">
+                                    <input name="{column}" id="{column}" type="hidden" class="form-control validform" value="{{_}form->{column}}" {required|siif:1:required data-validation-required-message="Este campo é obrigatório":}>
+                                    <div class="form-group">
+                                        <label class="control-label">{label}{required|siif:1:<span class="text-danger">*</span>:}</label>
+                                        <div class="btn-group">
+                                            <button data-selected="graduation-cap" type="button" class="icp icp-auto btn btn-info dropdown-toggle iconpicker-component" data-toggle="dropdown">
+                                                <i class="fa fa-fw fa-smile-o"></i>
+                                                <span class="caret"></span>
+                                            </button>
+                                            <div class="dropdown-menu"></div>
+                                        </div>
+                                    </div>
+                                </div>
+<!-- END block_form_field_input_icon -->
+<!-- END block_form_row -->
+                                <div class="col-md-12">
+                                    <div class="form-actions">
+                                        <a href="{{_}url_cancel}" class="btn btn-secondary"><i class="fa fa-arrow-left"></i> Voltar</a>
+                                        <div class="pull-right">
+                                            <button type="submit" class="btn btn-success" value="apply" name="acao" style="display: {{_}form->id|eiif:none:}"> <i class="fa fa-check"> </i> Aplicar </button>
+                                            &nbsp;
+                                            <button type="submit" class="btn btn-info pull-right" value="save" name="acao"> <i class="fa fa-save"> </i> Salvar </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    {{_}scripts}
+</script>

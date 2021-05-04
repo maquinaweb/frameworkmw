@@ -1,0 +1,84 @@
+{advancedsearch}
+{exportoptions}
+<div class="container-fluid" style="padding:0px;">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="dataTables_wrapper">
+                        {actions}
+                        <div class="dataTables_grid">
+                            <table id="grid" class="tablesaw table-bordered table tablesaw-columntoggle tablesaw-sortable table-bordered table-striped" data-tablesaw-mode="columntoggle" data-tablesaw-sortable data-tablesaw-minimap>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" data-tablesaw-priority="persist" width="30">
+                                            <input type="checkbox" id="md_checkbox_36" class="filled-in chk-col-light-blue checked_table_p" value="1">
+                                            <label for="md_checkbox_36" data-toggle="tooltip" title="Selecionar todos" ></label>
+                                        </th>
+                                        <th scope="col" data-tablesaw-priority="1" style="cursor:pointer;">
+                                            <a href="{url}/{module}/{controller}/grid{query|eiif::?}{query_json|json_decode:true|unset_many:order|http_build_query}{query|eiif:?:&}order={url|fsort:nome:nome-asc:}" target="#content" class="ajax show-alert">
+                                                Nome<i class="sortable-td{url|fsort:nome::1}"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col" data-tablesaw-priority="2" style="cursor:pointer;">
+                                            <a href="{url}/{module}/{controller}/grid{query|eiif::?}{query_json|json_decode:true|unset_many:order|http_build_query}{query|eiif:?:&}order={url|fsort:descricao:descricao-asc:}" target="#content" class="ajax show-alert">
+                                                Descrição<i class="sortable-td{url|fsort:descricao::1}"></i>
+                                            </a>
+                                        </th>
+                                        <th scope="col" data-tablesaw-priority="persist" width="50">
+                                            Ações
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- BEGIN block_row -->
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="md_checkbox_{grid->id}" class="filled-in chk-col-light-blue checked_table" value="{grid->id}">
+                                        <label for="md_checkbox_{grid->id}" data-toggle="tooltip" title="Selecionar"></label>
+                                        </td>
+                                        <td class="title footable-even footable-detail-show">
+                                            <a class="ajax show-alert" href="{url}/{module}/{controller}/form/{grid->id}{query|eiif::?}{query}" data-location="/{module}/{controller}/form/{grid->id}{query|eiif::?}{query}" target="#content" style="color: #67757c;">
+                                                <strong>{grid->nome}</strong>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {grid->descricao}
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <span data-toggle="tooltip" title="Ações"  style="display:inline-block;">
+                                                    <button type="button" class="btn btn-info dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fas fa-cog"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu bounce"  style="position: absolute; transform: translate3d(0px, -2px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                        <!-- BEGIN block_permission_update_1 -->
+                                                        <a class="dropdown-item ajax show-alert" href="{url}/{module}/{controller}/form/{grid->id}{query|eiif::?}{query}" data-location="/{module}/{controller}/form/{grid->id}{query|eiif::?}{query}" target="#content" >
+                                                            <i class="fas fa-edit"></i>&nbsp;&nbsp;Editar
+                                                        </a>
+                                                        <a class="dropdown-item ajax show-alert" href="{url}/{module}/{controller}/formpermission/{grid->id}{query|eiif::?}{query}" data-location="/{module}/{controller}/form/{grid->id}{query|eiif::?}{query}" target="#content" >
+                                                            <i class="ti-lock"></i>&nbsp;&nbsp;Permissões
+                                                        </a>
+                                                        <!-- END block_permission_update_1 -->
+                                                        <!-- BEGIN block_permission_delete_1 -->
+                                                        <a class="dropdown-item delete-ajax show-alert" href="javascript:void(0)" data-href="{url}/{module}/{controller}/delete/{grid->id}{query|eiif::?}{query}"><i class="fas fa-trash "></i>&nbsp;&nbsp;Excluir</a>
+                                                        <!-- END block_permission_delete_1 -->
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- END block_row --> 
+                                </tbody>
+                            </table>
+                        </div>
+                        {pagination}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+{scripts}
+</script>

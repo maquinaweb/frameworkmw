@@ -1,0 +1,19 @@
+<!-- BEGIN linha -->
+<tr>
+    <td><i class="{grid->icone}"></i></td>
+    <td>{grid->nome}</td>
+    <td>{grid->url}</td>
+    <td>
+        <a href="{url}/cadastro/gatilho/menu/desce?id={grid->id}&pag={url|request:get:pag}" class="btn btn-mini btn-info"><i class="fa fa-sort-desc"></i></a>
+        <a href="{url}/cadastro/gatilho/menu/sobe?id={grid->id}&pag={url|request:get:pag}" class="btn btn-mini btn-info"><i class="fa fa-sort-asc"></i></a>
+    </td>
+    <td>
+
+        <a href="{linkupdate}/ajax" data-remote="false" data-toggle="modal" data-target="#myModal" class="btn btn-mini btn-success" title="Editar"><i class="fa fa-edit"></i></a>
+        <a href="javascript:void(0)" onclick="if (confirm('Deseja excluir esse registro?'))
+                    self.location = '{linkdelete}'" class="btn btn-mini btn-danger"><i class="fas fa-trash"></i></a>
+
+
+    </td>
+</tr>
+<!-- END linha -->

@@ -1,0 +1,19 @@
+<head>
+    <link href="{url}/var/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body onload="window.print()">
+    <table class="table-bordered table">
+      <tr style="text-transform: uppercase;">
+        <!-- BEGIN block_grid_header -->
+        <th>{header}</th>
+        <!-- END block_grid_header -->
+      </tr>
+        <!-- BEGIN block_grid_row -->
+        <tr>
+            <!-- BEGIN block_grid_column -->
+            <td>{column|htmlspecialchars}</td>
+            <!-- END block_grid_column --> 
+        </tr> 
+        <!-- END block_grid_row -->  
+    </table>
+<body>

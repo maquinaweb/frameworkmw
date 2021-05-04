@@ -1,0 +1,54 @@
+<!-- Your Page Content Here -->
+<div class="modal fade" tabindex="-1" id="exportOptions" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="{url}/{module}/{controller}/export{query|eiif::?}{query}" method="post" target="auxiliar_frame" novalidade class="dismiss-modal">
+                <div class="modal-header">
+                    <h4 class="modal-title">Opções de exportação</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label">Selecione os dados para exportação</label>
+                                <select multiple class="multiSelect validform" id="columns" name="columns[]" required data-validation-required-message="Escolha ao menos um campo para prosseguir!">
+                                    <!-- BEGIN block_export_rows -->
+                                    <option value="{column}">{column|ucfirst}</option>
+                                    <!-- END block_export_rows -->
+                                </select>
+                                <div class="button-box m-t-20"> 
+                                    <a data-select-target="#columns" class="btn btn-secondary btn-sm select-all" href="#">Todos</a> 
+                                    <a data-select-target="#columns" class="btn btn-secondary btn-sm deselect-all" href="#">Nenhum</a>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Selecionar o tipo</label>
+                                <div class="input-group">
+                                    <ul class="icheck-list">
+                                        <!-- BEGIN block_export_formats -->
+                                        <li>
+                                            <input  type="radio" class="radio-col-light-blue validform" name="format" id="format_{format}" value="{format}" required data-validation-required-message="Escolha o formato de exportação!">
+                                            <label for="format_{format}" > {format_description}</label>
+                                        </li>
+                                        <!-- END block_export_formats -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="display: block;">
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-danger" data-toggle="tooltip" title="Cancelar" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancelar</button>
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-success " data-toggle="tooltip" title="Buscar" ><i class=" ti-download"></i>&nbsp;&nbsp;Finalizar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
