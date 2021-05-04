@@ -1,0 +1,29 @@
+.form-actions .btn{ margin: 3px 0;}
+
+@media only screen
+  and (max-width: 1100px){
+.dataTables_grid{ overflow: auto; overflow-y: hidden;}
+    .table.tablesaw{ max-width: 99%;}
+}
+
+::-webkit-input-placeholder {
+   color: #CCC !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #CCC !important; 
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #CCC !important;  
+}
+
+:-ms-input-placeholder {  
+   color: #CCC !important;
+}
+
+.bootstrap-tagsinput{ display:block; padding:7px 6px;}
+
+.input-group-btn:not(:first-child)>.btn, .input-group-btn:not(:first-child)>.btn-group{    padding: .5rem .75rem; font-size: 1rem;}
+
+.sidebar-nav>ul>li>a i{ line-height:28px;}
