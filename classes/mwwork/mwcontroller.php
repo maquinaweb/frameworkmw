@@ -971,7 +971,7 @@ class mwcontroller {
                 $vw->url_cancel = $_GET['ref'];
             }
             else {
-                $vw->url_cancel = "/$this->module/$this->name/grid";
+                $vw->url_cancel = HOME_URI . "/$this->module/$this->name/grid";
             }
         }
         

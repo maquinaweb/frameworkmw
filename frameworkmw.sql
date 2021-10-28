@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Maio-2021 às 15:31
+-- Tempo de geração: 28-Out-2021 às 13:11
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.9
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `frameworkmw`
 --
-CREATE DATABASE IF NOT EXISTS `frameworkmw` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `frameworkmw`;
 
 -- --------------------------------------------------------
 
@@ -320,7 +318,8 @@ INSERT INTO `app_log` (`id`, `data`, `usuario_id`, `tipo_usuario`, `conteudo_id`
 (193, '2020-12-03 07:52:32', 1, 'app_usuario', NULL, NULL, 'login', '{\"ip\":\"::1\",\"sucesso\":\"1\",\"usuario\":1,\"descritivo\":\"Usu\\u00e1rio logado com sucesso.\"}'),
 (194, '2021-02-09 09:19:47', 1, 'app_usuario', NULL, NULL, 'login', '{\"ip\":\"::1\",\"sucesso\":\"1\",\"usuario\":1,\"descritivo\":\"Usu\\u00e1rio logado com sucesso.\"}'),
 (195, '2021-02-10 09:38:17', 1, 'app_usuario', NULL, NULL, 'login', '{\"ip\":\"::1\",\"sucesso\":\"1\",\"usuario\":1,\"descritivo\":\"Usu\\u00e1rio logado com sucesso.\"}'),
-(196, '2021-02-11 09:35:17', 1, 'app_usuario', NULL, NULL, 'login', '{\"ip\":\"::1\",\"sucesso\":\"1\",\"usuario\":1,\"descritivo\":\"Usu\\u00e1rio logado com sucesso.\"}');
+(196, '2021-02-11 09:35:17', 1, 'app_usuario', NULL, NULL, 'login', '{\"ip\":\"::1\",\"sucesso\":\"1\",\"usuario\":1,\"descritivo\":\"Usu\\u00e1rio logado com sucesso.\"}'),
+(197, '2021-10-28 08:05:43', 1, 'app_usuario', NULL, NULL, 'login', '{\"ip\":\"::1\",\"sucesso\":\"1\",\"usuario\":1,\"descritivo\":\"Usu\\u00e1rio logado com sucesso.\"}');
 
 -- --------------------------------------------------------
 
@@ -355,8 +354,7 @@ INSERT INTO `app_menu` (`id`, `menu_id`, `nome`, `url`, `icone`, `ordem`, `verif
 (6, 1, 'Rotas', '/app/rotas/grid', NULL, 6, NULL, 1, '2018-06-15 11:49:51', '2018-09-21 11:42:16', 0),
 (7, 1, 'Gerador de Códigos', '/app/codigo/create', NULL, 7, NULL, 1, '2018-06-15 11:50:14', NULL, 2),
 (8, 2, 'Grupo de Usuários', '/app/grupousuario/grid', NULL, 8, NULL, 1, '2018-06-15 11:55:26', NULL, 5),
-(9, 2, 'Usuários', '/app/usuario/grid', NULL, 9, NULL, 1, '2018-06-15 11:57:31', NULL, 6),
-(17, 0, 'Clientes', '/gee/cliente/grid', 'fa fa-user', 10, NULL, 1, NULL, NULL, 18);
+(9, 2, 'Usuários', '/app/usuario/grid', NULL, 9, NULL, 1, '2018-06-15 11:57:31', NULL, 6);
 
 -- --------------------------------------------------------
 
@@ -387,8 +385,7 @@ INSERT INTO `app_modulo` (`id`, `nome`, `descricao`, `menu_id`, `grupomodulo_id`
 (6, 'app/usuario', 'Gerenciamento de usuarios do sistema', NULL, 2, '2018-06-15 14:43:23', NULL),
 (7, 'app/permissao', NULL, NULL, 2, '2018-09-21 11:02:50', NULL),
 (14, 'app/administrativo', 'Administrativo', NULL, 2, '2020-09-07 14:13:11', NULL),
-(15, 'app/sistema', 'Sistema', NULL, 1, '2020-09-07 14:13:32', NULL),
-(18, 'gee/cliente', 'Cadastro de cliente', NULL, 2, NULL, NULL);
+(15, 'app/sistema', 'Sistema', NULL, 1, '2020-09-07 14:13:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -514,38 +511,6 @@ CREATE TABLE `app_usuario` (
 INSERT INTO `app_usuario` (`id`, `nome`, `login`, `email`, `senha`, `data_criacao`, `data_alteracao`, `foto`, `ativo`, `falhaacesso`, `bloqueado`, `grupousuario_id`, `facebookid`, `googleid`, `data_exclusao`) VALUES
 (1, 'Mario Fabre', 'mario', 'mario@maquinaweb.com.br', '8e3fba1d382f7df9e50f481179db8780ffcd4d71', '2018-09-20 15:00:30', '2020-09-07 13:59:02', NULL, 1, 0, NULL, 2, NULL, NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `gee_cliente`
---
-
-CREATE TABLE `gee_cliente` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(60) DEFAULT NULL,
-  `cpf` varchar(14) DEFAULT NULL,
-  `email` varchar(15) DEFAULT NULL,
-  `celular` varchar(14) DEFAULT NULL,
-  `endereco` varchar(60) DEFAULT NULL,
-  `complemento` varchar(60) DEFAULT NULL,
-  `cep` varchar(8) DEFAULT NULL,
-  `bairro` varchar(30) DEFAULT NULL,
-  `cidade` varchar(30) DEFAULT NULL,
-  `uf` varchar(2) DEFAULT NULL,
-  `data_criacao` datetime DEFAULT NULL,
-  `data_exclusao` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `gee_cliente`
---
-
-INSERT INTO `gee_cliente` (`id`, `nome`, `cpf`, `email`, `celular`, `endereco`, `complemento`, `cep`, `bairro`, `cidade`, `uf`, `data_criacao`, `data_exclusao`) VALUES
-(1, 'Mario', '47544588858', 'mario@teste.com', '999999999', 'endereço teste', 'ap 157', '15000000', 'bairro teste', 'catanduva', 'SP', '2020-09-18 11:29:10', NULL),
-(2, 'José Antonio', '1234567891011', 'jose@teste.com', '9999999', 'rua vistoria', 'ap 1', '1544444', 'centro', 'catanduva', 'SP', '2020-09-30 11:55:54', NULL),
-(3, 'Adailton Cleido', '09826500860', 'adailton@gmail.', '99999999', 'av rua', NULL, '1500000', 'jd Oliveira', 'Catanduva', 'SP', '2020-10-27 10:25:07', NULL),
-(4, 'André Luiz Souza', '47544588859', 'andre123@gmail.', '99999999999', 'Rua Concórdia', 'ap 2', '157629', 'bairro jardim', 'Campinas', 'SP', '2020-10-30 15:04:43', NULL);
-
 --
 -- Índices para tabelas despejadas
 --
@@ -621,12 +586,6 @@ ALTER TABLE `app_usuario`
   ADD KEY `fk_app_usuario_app_grupousuario1_idx` (`grupousuario_id`);
 
 --
--- Índices para tabela `gee_cliente`
---
-ALTER TABLE `gee_cliente`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -658,7 +617,7 @@ ALTER TABLE `app_grupousuario`
 -- AUTO_INCREMENT de tabela `app_log`
 --
 ALTER TABLE `app_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
 
 --
 -- AUTO_INCREMENT de tabela `app_menu`
@@ -689,12 +648,6 @@ ALTER TABLE `app_rotas`
 --
 ALTER TABLE `app_usuario`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `gee_cliente`
---
-ALTER TABLE `gee_cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para despejos de tabelas
